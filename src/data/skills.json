@@ -1,0 +1,70 @@
+{
+    "layout": [
+        {
+            "name": "html",
+            "level": 85
+        },
+        {
+            "name": "css",
+            "level": 85
+        },
+        {
+            "name": "sass",
+            "level": 70
+        },
+        {
+            "name": "bootstrap",
+            "level": 60
+        },
+        {
+            "name": "responsive",
+            "level": 80
+        }
+    ],
+    "programing": [
+        {
+            "name": "js",
+            "level": 65
+        },
+        {
+            "name": "react",
+            "level": 60
+        },
+        {
+            "name": "redux",
+            "level": 40
+        }
+    ],
+    "tools": [
+        {
+            "name": "git",
+            "level": 40
+        },
+        {
+            "name": "github",
+            "level": 50
+        },
+        {
+            "name": "deploying",
+            "level": 50
+        },
+        {
+            "name": "gulp",
+            "level": 40
+        }
+    ],
+    "graphic": [
+        {
+            "name": "figma",
+            "level": 60
+        },
+        {
+            "name": "photoshop",
+            "level": 60
+        }
+    ]
+}
+   
+
+
+

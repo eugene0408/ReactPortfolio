@@ -1,0 +1,73 @@
+[
+    {
+        "title": "Age Counter",
+        "category": "react",
+        "desktop": "images/portfolio/ageCounterReact.png",
+        "mobile": "images/portfolio/ageCounterReact-mobile.png",
+        "descr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor fermentum a odio adipiscing morbi nullam fusce. Dolor lectus vitae habitant etiam adipiscing ",
+        "tags": ["react", "css", "i18next"],
+        "website": "https://age-counter.netlify.app",
+        "repo": "https://github.com/eugene0408/age-counter-React"
+    },
+    {
+        "title": "Carpathian Shop",
+        "category": "react",
+        "desktop": "images/portfolio/reduxShop.png",
+        "mobile": "images/portfolio/reduxShop-mobile.png",
+        "descr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor fermentum a odio adipiscing morbi nullam fusce. Dolor lectus vitae habitant etiam adipiscing ",
+        "tags": ["react", "redux", "styled components"],
+        "website": "https://shop-react-redux-bice.vercel.app/",
+        "repo": "https://github.com/eugene0408/shop-react-redux"
+    },
+    {
+        "title": "Todo List",
+        "category": "react",
+        "desktop": "images/portfolio/todoRedux.png",
+        "mobile": "images/portfolio/todoRedux-mobile.png",
+        "descr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor fermentum a odio adipiscing morbi nullam fusce. Dolor lectus vitae habitant etiam adipiscing ",
+        "tags": ["react", "redux", "styled components"],
+        "website": "https://eugene0408.github.io/Todo-ReactRedux/",
+        "repo": "https://github.com/eugene0408/Todo-ReactRedux"
+    },
+    {
+        "title": "Honey Shop",
+        "category": "js",
+        "desktop": "images/portfolio/honeyShop.png",
+        "mobile": "images/portfolio/honeyShop-mobile.png",
+        "descr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor fermentum a odio adipiscing morbi nullam fusce. Dolor lectus vitae habitant etiam adipiscing ",
+        "tags": ["html", "sass", "jQuery", "bootstrap"],
+        "website": "https://shop-react-redux-bice.vercel.app/",
+        "repo": "https://github.com/eugene0408/shop-react-redux"
+    },
+    {
+        "title": "Compremont",
+        "category": "js",
+        "desktop": "images/portfolio/kompremont.png",
+        "mobile": "images/portfolio/kompremont-mobile.png",
+        "descr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor fermentum a odio adipiscing morbi nullam fusce. Dolor lectus vitae habitant etiam adipiscing ",
+        "tags": ["html", "sass", "jQuery", "bootstrap"],
+        "website": "https://shop-react-redux-bice.vercel.app/",
+        "repo": "https://github.com/eugene0408/shop-react-redux"
+    },
+    {
+        "title": "Food spin",
+        "category": "js",
+        "desktop": "images/portfolio/foodSpin.png",
+        "mobile": "images/portfolio/foodSpin-mobile.png",
+        "descr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor fermentum a odio adipiscing morbi nullam fusce. Dolor lectus vitae habitant etiam adipiscing ",
+        "tags": ["html", "sass", "js", "bootstrap"],
+        "website": "https://shop-react-redux-bice.vercel.app/",
+        "repo": "https://github.com/eugene0408/shop-react-redux"
+    },
+    {
+        "title": "Portfolio website",
+        "category": "js",
+        "desktop": "images/portfolio/portfolio.png",
+        "mobile": "images/portfolio/portfolio-mobile.png",
+        "descr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor fermentum a odio adipiscing morbi nullam fusce. Dolor lectus vitae habitant etiam adipiscing ",
+        "tags": ["html", "sass", "js", "bootstrap"],
+        "website": "https://shop-react-redux-bice.vercel.app/",
+        "repo": "https://github.com/eugene0408/shop-react-redux"
+    }
+    
+]
