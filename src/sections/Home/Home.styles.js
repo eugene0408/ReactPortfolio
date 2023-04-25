@@ -49,10 +49,6 @@ export const AvatarWrapper = styled.div`
             height: 340px;
         }      
     }
-    /* @media (max-width: 768px) {
-        position: absolute;
-        right: 0;
-    } */
 
 `
 export const AvatarBg = styled.div`

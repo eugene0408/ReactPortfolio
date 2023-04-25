@@ -49,8 +49,8 @@ export const Home = React.forwardRef(({},ref) => {
       <Row>
         {/* Title container*/}
         <Col 
-          xxl={6} xl={7} lg={8} md={8} sm={10} xs={9}
-          offset={{xxl:1, xl:1, lg:1, md:0, sm:2, xs:3}}
+          xxl={6} xl={7} lg={8} md={8} sm={10} xs={10}
+          offset={{xxl:1, xl:1, lg:1, md:0, sm:2, xs:2}}
         >
           <HeaderWrapper>
             <HeaderTitle>

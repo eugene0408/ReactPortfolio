@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import useLocalStorage from "react-use-localstorage";
 import { setConfiguration } from 'react-grid-system';
 
