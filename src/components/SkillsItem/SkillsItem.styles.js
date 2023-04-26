@@ -5,7 +5,6 @@ const flexCenter = `
     justify-content: center;
     align-items: center;
 `
-const iconSize = 45;
 
 const darkGlass = 'rgba( 0,0,0, 0.07)',
       darkBorder = 'rgba( 0,0,0, 0.02)',
@@ -52,14 +51,20 @@ export const Wrapper = styled.div`
         backdrop-filter: blur(4px);
         z-index: 1;
     }
+    @media (max-width: 576px){
+        &::before{
+            width: 100%;
+        }
+    }
 
 `
 export const IconWrapper = styled.div`
     ${flexCenter}
+    --icon-size: 45px;
     width: 100%;
     z-index: 2;
     & svg {
-        height: ${iconSize}px;
+        height: var(--icon-size);
         transition: all .3s ease;
         & path {
             fill: var(--text-col)
@@ -73,6 +78,9 @@ export const IconWrapper = styled.div`
             }
         }
     }
+    @media (max-width: 576px) {
+        --icon-size: 36px;
+    }
 `
 export const Title = styled.h3`
     text-transform: uppercase;
@@ -80,6 +88,9 @@ export const Title = styled.h3`
     font-size: 18px;
     font-weight: 500;
     z-index: 2;
+    @media (max-width: 576px) {
+        font-size: 16px;
+    }
 `
 
 export const Line = styled.div`

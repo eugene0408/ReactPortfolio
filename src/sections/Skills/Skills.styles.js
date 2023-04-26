@@ -1,8 +1,12 @@
 import styled from 'styled-components'
 import { Row } from 'react-grid-system'
 
+
 export const SkillsRow = styled(Row)`
     position: relative;
+    @media (max-width: 576px) {
+        justify-content: end !important;
+    }
 `
 
 export const RowHeader = styled.h4`

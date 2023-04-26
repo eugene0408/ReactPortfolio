@@ -123,6 +123,9 @@ export const ScrollIconsWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (max-width: 768px) {
+        bottom: 2rem;
+    }
 `
 
 export const ScrollLink = styled.a`
@@ -154,6 +157,15 @@ export const ScrollLink = styled.a`
         }
         & #arrow-icon {
             height: 7px;
+        }
+    }
+    @media (max-width: 768px) {
+        & #mouse-icon {
+            display: none;
+        }
+        & #arrow-icon {
+            height: 15px;
+            animation: ${scrollAnimation} 1.5s linear infinite;
         }
     }
 `   

@@ -16,9 +16,16 @@ import {
 
 
 const colProps = {
-  md: 1.5,
+  xl: 1.5,
+  lg: 2,
+  md: 2.8,
+  sm: 4,
+  xs: 3.6,
   offset: {
-    md: 0.5
+    xl: 0.5,
+    lg: 0.2,
+    md: 0,
+    sm: 0
   }
 }
 
@@ -31,8 +38,8 @@ export const Skills = forwardRef((props, ref) => {
     >
       <PageHeader> My skills </PageHeader>
 
-      <Container>
-        <SkillsRow >
+      <Container style={{paddingBottom: "250px"}}>
+        <SkillsRow>
           <RowHeader>
             Layout
           </RowHeader>
@@ -99,7 +106,7 @@ export const Skills = forwardRef((props, ref) => {
           }
         </SkillsRow>
 
-      </Container>
+      </Container >
 
 
     </PageWrapper>
