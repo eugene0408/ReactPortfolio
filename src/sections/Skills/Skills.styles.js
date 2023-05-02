@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Row } from 'react-grid-system'
+import { Row, Col } from 'react-grid-system'
 
 
 export const SkillsRow = styled(Row)`
@@ -26,4 +26,9 @@ export const RowHeader = styled.h4`
             opacity: 0.1;
         }
     }
+    @media (max-width: 998px) {
+        top: 50%;
+        transform: translateY(-50%);
+    }
 `
+

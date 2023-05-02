@@ -12,11 +12,21 @@ export const PageWrapper = styled.div`
 `
 export const PageHeader = styled.h2`
   font-size: 36px;
-  font-weight: 500;
-  margin-top: 5rem;
+  font-weight: 600;
+  margin-top: 4rem;
   color: var(--text-col);
   width: 100%;
   text-align: center;
+  opacity: .3;
+  @media (max-width: 1600px) {
+    margin-top: 2rem;
+  }
+  @media (max-width: 992px) {
+    margin-top: 3rem;
+  }
+  @media (max-width: 768px) {
+    margin-top: 4rem;
+  }
 `
 
 export const SnapScrollContainer = styled.div`

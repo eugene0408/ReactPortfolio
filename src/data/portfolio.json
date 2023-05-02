@@ -4,17 +4,17 @@
         "category": "react",
         "desktop": "images/portfolio/ageCounterReact.png",
         "mobile": "images/portfolio/ageCounterReact-mobile.png",
-        "descr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor fermentum a odio adipiscing morbi nullam fusce. Dolor lectus vitae habitant etiam adipiscing ",
+        "descr": "Input your birth date and see how many years, months, days, hours & minutes you have lived at the moment; days to your next birthday etc. ",
         "tags": ["react", "css", "i18next"],
         "website": "https://age-counter.netlify.app",
         "repo": "https://github.com/eugene0408/age-counter-React"
     },
     {
-        "title": "Carpathian Shop",
+        "title": "Carpathian Herbs Shop",
         "category": "react",
         "desktop": "images/portfolio/reduxShop.png",
         "mobile": "images/portfolio/reduxShop-mobile.png",
-        "descr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor fermentum a odio adipiscing morbi nullam fusce. Dolor lectus vitae habitant etiam adipiscing ",
+        "descr": "Online store, filter goods by categories, dark/light theme, responsive design",
         "tags": ["react", "redux", "styled components"],
         "website": "https://shop-react-redux-bice.vercel.app/",
         "repo": "https://github.com/eugene0408/shop-react-redux"

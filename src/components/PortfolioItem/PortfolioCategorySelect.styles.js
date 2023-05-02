@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-const iconSize = 22;
-
 export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
@@ -15,7 +13,7 @@ export const Item = styled.button`
     border: none;
     border-radius: 10px;
     background: ${props => props.curCategory === props.value ? 'var(--accent)' : 'var(--menu-bg)'};
-    font-size: ${iconSize - 4}px;
+    font-size: 16px;
     color: ${props => props.curCategory === props.value ? '#000' : 'var(--text-col)'};
     padding: .5rem 1rem;
     margin: 0 .8rem;
@@ -23,10 +21,16 @@ export const Item = styled.button`
     text-transform: uppercase;
     transition: all .3s ease;
     & svg {
-        height: ${iconSize}px;
+        height: 20px;
         margin-right: .5rem;
     }
     & svg path {
         fill: ${props => props.curCategory === props.value ? '#000' : 'var(--text-col)'};
     }
+    /* @media (max-width: 1600px) {
+        & svg {
+            height: 20px;
+        }
+        font-size: 16px;
+    } */
 `

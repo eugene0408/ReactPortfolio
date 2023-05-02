@@ -1,9 +1,7 @@
 import React, {useState, useEffect, forwardRef} from 'react'
-import { Container } from 'react-grid-system'
+import { Container, Row } from 'react-grid-system'
 
 import portfolioData from '../../data/portfolio.json'
-
-
 
 import { 
   PortfolioCategorySelect,
@@ -15,6 +13,8 @@ import {
   PageWrapper,
   PageHeader
  } from '../Pages.styles'
+
+import { PortfolioWrapper } from './Portfolio.styles'
 
 export const Portfolio = forwardRef((
   {hovered,
@@ -34,16 +34,16 @@ export const Portfolio = forwardRef((
 
   /**  Pagination
    ----------------------------------------------*/
-  const itemsPerScreen = 2;
-  const indexOfLastItem = curPortfolioPage * itemsPerScreen;
-  const indexOfFirstItem = indexOfLastItem - itemsPerScreen;
+  const screenIsSmall = window.matchMedia("(max-width: 1200px)").matches
+  const itemsPerScreen = () => screenIsSmall ? 1 : 2;
+  const indexOfLastItem = curPortfolioPage * itemsPerScreen();
+  const indexOfFirstItem = indexOfLastItem - itemsPerScreen();
   const itemsToDisplay = filterPortfolio().slice(indexOfFirstItem, indexOfLastItem);
   const totalItems = filterPortfolio().length
   // Array of numbers from 1 to screens amount
-  const totalScreens = Array.from({length: Math.ceil(totalItems/itemsPerScreen)}, (_, i) => i + 1);
+  const totalScreens = Array.from({length: Math.ceil(totalItems/itemsPerScreen())}, (_, i) => i + 1);
 
   const resetCurScreen = () => setCurPortfolioPage(1)
-
 
   useEffect(() => {
     filterPortfolio();
@@ -62,7 +62,6 @@ const wheelHandler = (e) => {
   e.preventDefault();
   e.stopPropagation();
   const numberOfScreens = totalScreens.length
-  const switchDelay = 200
 
   const nextPage = () => {
     curPortfolioPage < numberOfScreens ?  setCurPortfolioPage(curPortfolioPage + 1) : setHovered(false)
@@ -87,36 +86,43 @@ const wheelHandler = (e) => {
     >
       <PageHeader> My works </PageHeader>
 
-      <PortfolioCategorySelect
-        curCategory = {portfolioCategory}
-        setCategory = {setPortfolioCategory}
-        />
-
-      <Container 
-        style={{height: "80vh"}}
-        onMouseEnter={() => onHoverHandler()}
-        onMouseLeave={() => onLeaveHandler()}
-        onWheel={(e) => {wheelHandler(e)}}
-      >
-        {
-          itemsToDisplay.map((item) => (
-            <PortfolioItem 
-              key={item.title}
-              title={item.title}
-              desktop={item.desktop}
-              mobile={item.mobile}
-              descr={item.descr}
-              tags={item.tags}
-              website={item.website}
-              repo={item.repo}
+      <Container>
+        <Row justify='center' align='center' direction='column'>
+          <PortfolioCategorySelect
+            curCategory = {portfolioCategory}
+            setCategory = {setPortfolioCategory}
+          />
+          <PortfolioWrapper
+            onMouseEnter={() => onHoverHandler()}
+            onMouseLeave={() => onLeaveHandler()}
+            onWheel={(e) => {wheelHandler(e)}}
+          >
+            {/* Portfolio items  */}
+            {
+              itemsToDisplay.map((item) => (
+                <PortfolioItem 
+                  key={item.title}
+                  title={item.title}
+                  desktop={item.desktop}
+                  mobile={item.mobile}
+                  descr={item.descr}
+                  tags={item.tags}
+                  website={item.website}
+                  repo={item.repo}
+                />
+              ))
+            }
+            
+            {/* Pagination */}
+            <PortfolioPagination 
+              curScreen={curPortfolioPage}
+              setCurScreen={setCurPortfolioPage}
+              totalScreens={totalScreens}
             />
-          ))
-        }
-        <PortfolioPagination 
-          curScreen={curPortfolioPage}
-          setCurScreen={setCurPortfolioPage}
-          totalScreens={totalScreens}
-        />
+
+          </PortfolioWrapper>
+        
+        </Row>
       </Container>
 
     </PageWrapper>

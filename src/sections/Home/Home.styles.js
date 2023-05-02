@@ -67,6 +67,11 @@ export const AvatarBg = styled.div`
         width: var(--hov-size);
         top: 34%;
     }
+    @media (max-width: 1600px) {
+        top: 37%;
+        ${AvatarWrapper}:hover & {
+            top: 30%;
+    }
     @media (max-width: 1200px) {
         --size: 236px;
         top: 36%;
@@ -140,7 +145,7 @@ export const ScrollLink = styled.a`
     }
     &:hover {
         svg path {
-            fill: ${props => props.theme == "dark" ? 'var(--accent)' : 'var(--light-red)'};
+            fill: ${props => props.theme === "dark" ? 'var(--accent)' : 'var(--light-red)'};
         }
     }
     & #mouse-icon {

@@ -11,7 +11,7 @@ import {
  } from '../Pages.styles'
 import {
   SkillsRow,
-  RowHeader,
+  RowHeader
 } from './Skills.styles'
 
 
@@ -20,7 +20,7 @@ const colProps = {
   lg: 2,
   md: 2.8,
   sm: 4,
-  xs: 3.6,
+  xs: 3.4,
   offset: {
     xl: 0.5,
     lg: 0.2,
