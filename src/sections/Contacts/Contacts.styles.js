@@ -7,9 +7,16 @@ const darkGlass = 'rgba( 0,0,0, 0.07)',
       lightBorder = 'rgba( 255,255,255, 0.02)';
 
 
+
 export const ContactContainer = styled.div`
     height: 100%;
-    width: 60%;
+    display: flex;
+    flex-direction: column;
+    @media (max-width: 992px){
+        align-items: center;
+        margin-bottom: 5rem;
+        margin-top: 5rem;
+    }
 `
 
 export const ContactItem = styled.div`
@@ -17,10 +24,10 @@ export const ContactItem = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1em .5em;
+    padding: 1em 1.2em;
     font-size: 18px;
-    width: 100%;
-    margin: 1.4em 0;
+    width: fit-content;
+    margin: .5em 0;
     &::before {
         content: '';
         position: absolute;
@@ -35,31 +42,51 @@ export const ContactItem = styled.div`
     & * {
         z-index: 2;
     }
-    & svg {
-        height: 1.8em;
-        width: 1.8em;
-        position: absolute;
-        left: 1em;
-    }
-    &:nth-of-type(1) svg path {
-        fill: var(--light-red)
-    }
-    &:nth-of-type(2) svg path {
-        fill: var(--green);
-    }
-    &:nth-of-type(3) svg path {
-        fill: var(--accent);
-    }
     & span {
         color: var(--text-col);
+    } 
+    @media (max-width: 768px) {
+        font-size: 16px;
     }
-     
+    @media (max-width: 576px) {
+        padding: 1em;
+    }
+`
+
+export const IconWrapper = styled.div`
+    --size: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--size);
+    width: var(--size);
+    border-radius: 50%;
+    box-shadow: 5px 5px 10px rgba(0,0,0, .2);
+    margin-right: .8em;
+    background-color: #fff;
+    transition: all .3s ease;
+    & svg {
+        height: 60%;
+        fill: #000;
+    }
+    ${ContactItem}:hover & {
+        background-color: var(--accent);
+    }
+    @media (max-width: 768px) {
+        --size: 28px;
+    }
 `
 
 export const ContactHeader = styled.h3`
     color: var(--text-col);
     font-size: 38px;
     font-weight: 700;
+    @media (max-width: 768px) {
+        font-size: 32px;
+    }
+    @media (max-width: 576px) {
+        font-size: 28px;
+    }
 `
 
 export const ColDash = styled.span`
@@ -70,22 +97,26 @@ export const ColDash = styled.span`
         color: var(--accent);
     }
 `
-
+ 
 export const SocialContainer = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
-    margin-top: 4rem;
+    margin-top: 3rem;
+    @media (max-width: 992px) {
+        justify-content: center;
+    }
 `
 
 export const SocialItem = styled.div`
+    --size: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    height: 40px;
-    width: 40px;
+    height: var(--size);
+    width: var(--size);
     background-color: white;
     margin: 0 .5em;
     cursor: pointer;
@@ -95,17 +126,24 @@ export const SocialItem = styled.div`
         background-color: var(--accent)
     }
     & svg {
-        height: 24px;
-        width: 24px;
+        height: calc(var(--size) / 1.8);
+        width: calc(var(--size) / 1.8);
     }
     & svg path {
         fill: #000;
+    }
+    @media (max-width: 768px) {
+        --size: 36px;
     }
 `
 export const FormContainer = styled.div`
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    @media (max-width: 992px) {
+        justify-content: center;
+        margin-top: 4rem;
+    }
 `
 export const Form = styled.form `
     position: relative;
@@ -129,6 +167,15 @@ export const Form = styled.form `
     & * {
         z-index: 2;
     }
+    @media (max-width: 1200px) {
+        width: 80%;
+    }
+    @media (max-width: 992px) {
+        width: 60%;
+    }
+    @media (max-width: 768px) {
+        width: 80%;
+    }
 
 `
 
@@ -145,13 +192,20 @@ export const InputWrapper = styled.div`
    margin-top: .3em;
    margin-bottom: .8em;
    & svg {
+        --size: 22px;
         position: absolute;
         left: 10px;
         top: 50%;
         transform: translateY(-50%);
-        height: 22px;
-        width: 22px;
+        height: var(--size);
+        width: var(--size);
         opacity: .4;
+    }
+    @media (max-width: 576px) {
+        & svg {
+            --size: 18px;
+            left: 8px;
+        }
     }
 `
 
@@ -167,6 +221,9 @@ const inputStyles = `
 
 export const Input = styled.input` 
     ${inputStyles}
+    @media (max-width: 576px) {
+        padding: .5em .8em .5em 2.2em;
+    }
 `
 
 export const TextWrapper = styled.div`
@@ -174,12 +231,19 @@ export const TextWrapper = styled.div`
     position: relative;
     margin-top: .3em;
     & svg {
-        height: 22px;
-        width: 22px;
+        --size: 22px;
+        height: var(--size);
+        width: var(--size);
         position: absolute;
         left: 10px;
         top: .7em;
         opacity: .4;
+    }
+    @media (max-width: 576px) {
+        & svg {
+            --size: 18px;
+            left: 8px;
+        }
     }
 `
 

@@ -23,6 +23,7 @@ import {
   ContactContainer,
   ContactItem,
   ContactHeader,
+  IconWrapper,
   ColDash,
   SocialContainer,
   SocialItem,
@@ -54,7 +55,8 @@ export const Contacts = forwardRef((props, ref) => {
           Contacts & Social
           ------------------- */}
           <Col
-          md={6}
+          xl={6} lg={6} md={12}
+          order={{lg: 1, md: 2, sm: 2, xs: 2}}
           >
             <ContactContainer>
               <ContactHeader>
@@ -62,21 +64,27 @@ export const Contacts = forwardRef((props, ref) => {
               </ContactHeader>
               {/*---------- Mail --------------*/}
               <ContactItem theme={finalTheme}>
-                <MailIcon />
+                <IconWrapper>
+                  <MailIcon />
+                </IconWrapper>        
                 <span>
                   zhenualemak@gmail.com
                 </span>   
               </ContactItem>
               {/*--------- Phone -------------*/}
               <ContactItem theme={finalTheme}>
-                <PhoneIcon />
+                <IconWrapper>
+                  <PhoneIcon />
+                </IconWrapper> 
                 <span>
                   +38<ColDash/>068<ColDash/>19<ColDash/>08<ColDash/>994
                 </span>   
               </ContactItem>
               {/*--------- Location -------------*/}
               <ContactItem theme={finalTheme}>
-                <LocationIcon />
+                <IconWrapper>
+                  <LocationIcon />
+                </IconWrapper> 
                 <span>
                   Ukraine, Zakarpatia
                 </span>   
@@ -109,7 +117,8 @@ export const Contacts = forwardRef((props, ref) => {
           Contact Form
           ---------------------------- */}
           <Col
-            md={6}
+            xl={6} lg={6} md={12}
+            order={{lg: 2, md: 1, sm: 1, xs: 1}}
           >
             <FormContainer>
               <Form theme={finalTheme}>
