@@ -24,7 +24,7 @@ import {
   ContactItem,
   ContactHeader,
   IconWrapper,
-  ColDash,
+  ColDot,
   SocialContainer,
   SocialItem,
   Form,
@@ -77,7 +77,7 @@ export const Contacts = forwardRef((props, ref) => {
                   <PhoneIcon />
                 </IconWrapper> 
                 <span>
-                  +38<ColDash/>068<ColDash/>19<ColDash/>08<ColDash/>994
+                  +38<ColDot/>068<ColDot/>1908<ColDot/>994
                 </span>   
               </ContactItem>
               {/*--------- Location -------------*/}

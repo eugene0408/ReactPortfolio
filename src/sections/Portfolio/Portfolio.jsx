@@ -21,10 +21,14 @@ export const Portfolio = forwardRef((
   setHovered}, 
   ref) => {
 // Category filter
+  const categoriesList = ['react', 'js']
+
   const [portfolioCategory, 
-    setPortfolioCategory] = useState('react');
+    setPortfolioCategory] = useState(categoriesList[0]);
   const [curPortfolioPage,
     setCurPortfolioPage] = useState(1);
+  const [categoryScrolledBack,
+    setCategoryScrolledBack] = useState(false);
 
 
   const filterPortfolio = () => (
@@ -43,12 +47,24 @@ export const Portfolio = forwardRef((
   // Array of numbers from 1 to screens amount
   const totalScreens = Array.from({length: Math.ceil(totalItems/itemsPerScreen())}, (_, i) => i + 1);
 
-  const resetCurScreen = () => setCurPortfolioPage(1)
+
+  // Reset current page when category changed
+  const resetCurScreen = () => { 
+    if(categoryScrolledBack){
+      // Start from last page if scrolled back
+      setCurPortfolioPage(totalScreens.length);
+      setCategoryScrolledBack(false)
+    }else{
+      // Start from first page if scrolled forward
+      setCurPortfolioPage(1)
+    }
+  }
 
   useEffect(() => {
     filterPortfolio();
     resetCurScreen();
-  }, [portfolioCategory])
+  }, [portfolioCategory]);
+
 
 const onHoverHandler = () => {
   setHovered(true)
@@ -59,15 +75,39 @@ const onLeaveHandler = () => {
 
 // Switch portfolio pages by mouse wheel
 const wheelHandler = (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-  const numberOfScreens = totalScreens.length
+  
+  const numberOfScreens = totalScreens.length;
+  const curCategoryIndex = categoriesList.findIndex((category) => category === portfolioCategory);
+  const isLastCategory = portfolioCategory === categoriesList[categoriesList.length - 1];
+  const isFirstCategory = portfolioCategory === categoriesList[0]
+  
 
   const nextPage = () => {
-    curPortfolioPage < numberOfScreens ?  setCurPortfolioPage(curPortfolioPage + 1) : setHovered(false)
+    switch(true) {
+      case curPortfolioPage < numberOfScreens:
+        setCurPortfolioPage(curPortfolioPage + 1)
+        break;
+      case curPortfolioPage === numberOfScreens && !isLastCategory:
+        setPortfolioCategory(categoriesList[curCategoryIndex + 1])
+        setCurPortfolioPage(numberOfScreens)
+        break;
+      default:
+        setHovered(false);
+    }
   };
+
   const prevPage = () => {
-    curPortfolioPage > 1 ? setCurPortfolioPage(curPortfolioPage - 1) : setHovered(false)
+    switch(true) {
+      case curPortfolioPage > 1:
+        setCurPortfolioPage(curPortfolioPage - 1);
+        break;
+      case curPortfolioPage === 1 && !isFirstCategory:
+        setPortfolioCategory(categoriesList[curCategoryIndex - 1])
+        setCategoryScrolledBack(true)
+        break;
+      default:
+        setHovered(false)
+    }
   };
 
   if(e.deltaY > 0){
@@ -91,6 +131,7 @@ const wheelHandler = (e) => {
           <PortfolioCategorySelect
             curCategory = {portfolioCategory}
             setCategory = {setPortfolioCategory}
+            categoriesList = {categoriesList}
           />
           <PortfolioWrapper
             onMouseEnter={() => onHoverHandler()}

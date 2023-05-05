@@ -27,7 +27,8 @@ import {
   AvatarBg,
   ThemeImageWrapper,
   ScrollIconsWrapper,
-  ScrollLink
+  ScrollLink,
+  AvatarBgWrapper
 } from './Home.styles'
 
 
@@ -92,7 +93,9 @@ export const Home = React.forwardRef(({},ref) => {
           <Hidden sm xs> {/* Hide on small devices */}
 
             <AvatarWrapper>
-              <AvatarBg />
+              <AvatarBgWrapper>
+                <AvatarBg />
+              </AvatarBgWrapper>
               <img src={ava} alt='avatar-image'/>
             </AvatarWrapper>
 

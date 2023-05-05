@@ -74,16 +74,14 @@ function App() {
         if(currentSection !== `#${section.id}`){
           setCurrentSection(`#${section.id}`);
         }    
-      }
+      } 
+      // console.log(`${section.id}:${sectionTop}  scrollPos: ${e.currentTarget.scrollTop}`)
     })
+    
     
   }
 
-
-  console.log(`portfolio: ${portfolioHovered} active: ${currentSection} `)
-
-
-  return (
+    return (
     <div 
       className="App" 
       data-theme={theme}
@@ -133,3 +131,6 @@ function App() {
 }
 
 export default App;
+
+
+// React css snap scroll change active section in state when scrolling, all sections are in div element so window.scroll not working

@@ -8,16 +8,16 @@ import {
 
 export const PortfolioCategorySelect = ({
     curCategory,
-    setCategory
+    setCategory,
+    categoriesList
 }) => {
 
-    const categories = ['react', 'js']
     const changeCategory = e => setCategory(e.currentTarget.value);
 
   return (
     <Wrapper>
         { 
-            categories.map((category) => (
+            categoriesList.map((category) => (
                 <Item
                     key={`pc-${category}`}
                     value={category}

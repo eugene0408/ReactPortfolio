@@ -88,15 +88,6 @@ export const ContactHeader = styled.h3`
         font-size: 28px;
     }
 `
-
-export const ColDash = styled.span`
-    &::before{
-        content: '-';
-        font-size: 1em;
-        font-weight: 500;
-        color: var(--accent);
-    }
-`
  
 export const SocialContainer = styled.div`
     display: flex;
@@ -106,6 +97,13 @@ export const SocialContainer = styled.div`
     margin-top: 3rem;
     @media (max-width: 992px) {
         justify-content: center;
+    }
+`
+export const ColDot = styled.span`
+    &::before{
+        content: '•';
+        color: var(--light-red);
+        font-size: 1em;
     }
 `
 

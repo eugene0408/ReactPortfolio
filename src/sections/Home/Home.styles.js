@@ -49,35 +49,34 @@ export const AvatarWrapper = styled.div`
             height: 340px;
         }      
     }
-
 `
+export const AvatarBgWrapper = styled.div`
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
 export const AvatarBg = styled.div`
     --size: 320px;
     border-radius: 50%;
     height: var(--size);
     width: var(--size);
     background: #D9D9D9;
-    position: absolute;
-    top: 40%;
+    margin-top: 3em;
     z-index: 1;
     transition: .3s ease;
     ${AvatarWrapper}:hover & {
         --hov-size: 375px;
         height: var(--hov-size);
         width: var(--hov-size);
-        top: 34%;
-    }
-    @media (max-width: 1600px) {
-        top: 37%;
-        ${AvatarWrapper}:hover & {
-            top: 30%;
     }
     @media (max-width: 1200px) {
-        --size: 236px;
-        top: 36%;
+        --size: 220px;
         ${AvatarWrapper}:hover & {
             --hov-size: 250px;
-            top: 34%;
         }
     }
 `
