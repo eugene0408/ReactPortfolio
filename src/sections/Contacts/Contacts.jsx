@@ -42,6 +42,7 @@ export const Contacts = forwardRef((props, ref) => {
 
   const {finalTheme} = useContext(ThemeContext)
 
+
   return (
     <PageWrapper
       ref={ref}
@@ -93,15 +94,21 @@ export const Contacts = forwardRef((props, ref) => {
               {/*----------------- Social -----------------*/}
               <SocialContainer>
                 {/* Telegram */}
-                <SocialItem>
+                <SocialItem
+                  href="tg://resolve?domain=eugene0408"
+                >
                   <TelegramIcon />
                 </SocialItem>
                 {/* Insta */}
-                <SocialItem>
+                <SocialItem
+                  href="https://www.instagram.com/lemak_evg/"
+                >
                   <InstaIcon />
                 </SocialItem>
                 {/* Facebook */}
-                <SocialItem>
+                <SocialItem
+                  href = "https://www.facebook.com/eugene.lemak.1"
+                >
                   <FacebookIcon />
                 </SocialItem>
                 {/* Linked */}
@@ -121,7 +128,9 @@ export const Contacts = forwardRef((props, ref) => {
             order={{lg: 2, md: 1, sm: 1, xs: 1}}
           >
             <FormContainer>
-              <Form theme={finalTheme}>
+              <Form theme={finalTheme}
+                onSubmit={ (e) => { e.preventDefault() } }
+              >
 
                 <Label>Your Name</Label>
                 <InputWrapper>

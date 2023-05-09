@@ -47,7 +47,7 @@ export const Portfolio = forwardRef((
   // Array of numbers from 1 to screens amount
   const totalScreens = Array.from({length: Math.ceil(totalItems/itemsPerScreen())}, (_, i) => i + 1);
 
-
+    
   // Reset current page when category changed
   const resetCurScreen = () => { 
     if(categoryScrolledBack){

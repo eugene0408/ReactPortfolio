@@ -107,7 +107,9 @@ export const ColDot = styled.span`
     }
 `
 
-export const SocialItem = styled.div`
+export const SocialItem = styled.a.attrs({
+    'target': '_blank'
+})`
     --size: 40px;
     display: flex;
     justify-content: center;
