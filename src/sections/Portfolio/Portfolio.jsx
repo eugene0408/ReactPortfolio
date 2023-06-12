@@ -16,10 +16,14 @@ import {
 
 import { PortfolioWrapper } from './Portfolio.styles'
 
+
+
+
 export const Portfolio = forwardRef((
-  {hovered,
-  setHovered}, 
-  ref) => {
+  { hovered,
+    setHovered,
+    scrollToSection
+  }, ref) => {
 // Category filter
   const categoriesList = ['react', 'js']
 
@@ -87,11 +91,12 @@ const wheelHandler = (e) => {
       case curPortfolioPage < numberOfScreens:
         setCurPortfolioPage(curPortfolioPage + 1)
         break;
-      case curPortfolioPage === numberOfScreens && !isLastCategory:
+      case curPortfolioPage === numberOfScreens && !isLastCategory:  //switch to next category if scrolled to an end
         setPortfolioCategory(categoriesList[curCategoryIndex + 1])
         setCurPortfolioPage(numberOfScreens)
         break;
       default:
+        scrollToSection('s-contacts')   // go to next section if scrolled to last item
         setHovered(false);
     }
   };
@@ -101,12 +106,14 @@ const wheelHandler = (e) => {
       case curPortfolioPage > 1:
         setCurPortfolioPage(curPortfolioPage - 1);
         break;
-      case curPortfolioPage === 1 && !isFirstCategory:
+      case curPortfolioPage === 1 && !isFirstCategory:   //switch to prewious category if scrolled to an end
         setPortfolioCategory(categoriesList[curCategoryIndex - 1])
         setCategoryScrolledBack(true)
         break;
       default:
+        scrollToSection('s-skills')  // go to prew section if scrolled to last item
         setHovered(false)
+
     }
   };
 

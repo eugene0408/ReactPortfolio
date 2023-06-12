@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import useLocalStorage from "react-use-localstorage";
 import { setConfiguration } from 'react-grid-system';
 
@@ -45,14 +45,14 @@ function App() {
   const theme = themeHandler()
 
   const [currentSection,
-    setCurrentSection] = useState('#s-home')
+    setCurrentSection] = useState('s-home')
   // Portfolio scroll pages
   const [curPortfolioPage,
     setCurPortfolioPage] = useState(1);
   const [portfolioHovered,
     setPortfolioHovered] = useState(false)
 
-
+  const scrollContainerRef = useRef(null)
   const sectionsRefs = useRef([])
   sectionsRefs.current = []
 
@@ -63,23 +63,35 @@ function App() {
   }
 
 // Active section highlight
-  const activeSection = (e) => {
+  const activeSectionCheck = (e) => {
 
-    sectionsRefs.current.forEach(section => {
+      sectionsRefs.current.forEach( section => {
       const sectionTop = section.offsetTop - 50;
       const sectionHeight = section.offsetHeight;
       const sectionBottom = sectionTop + sectionHeight;
-
+  
       if(e.currentTarget.scrollTop >= sectionTop && e.currentTarget.scrollTop < sectionBottom) {
-        if(currentSection !== `#${section.id}`){
-          setCurrentSection(`#${section.id}`);
-        }    
-      } 
-      // console.log(`${section.id}:${sectionTop}  scrollPos: ${e.currentTarget.scrollTop}`)
-    })
-    
+        if(currentSection !== section.id){
+          setCurrentSection(section.id);
+        }} 
+      }) 
     
   }
+
+
+  const scrollToSection = (sectionId) => {
+      setTimeout( () => {
+        const container = scrollContainerRef.current
+        const section = sectionsRefs.current.find((el) =>  el.id === sectionId)
+
+        const sectionTop = section.offsetTop
+        container.scrollTop = sectionTop
+
+      }, 200);
+
+      activeSectionCheck()  
+  }
+
 
     return (
     <div 
@@ -99,13 +111,17 @@ function App() {
           }}
         >
           <Topline />
-          <SideMenu/>
+          <SideMenu
+            scrollToSection = {scrollToSection}
+          />
           <SnapScrollContainer 
+            ref={scrollContainerRef}
             portfolioHovered = {portfolioHovered}
-            onScroll = {(e) => activeSection(e)}
+            onScroll = {(e) => activeSectionCheck(e)}
           >
             <Home 
               ref={addToRefs}
+              scrollToSection = {scrollToSection}
             />
             <Skills
               ref={addToRefs}
@@ -116,6 +132,7 @@ function App() {
               setCurScreen={setCurPortfolioPage}
               hovered={portfolioHovered}
               setHovered={setPortfolioHovered}
+              scrollToSection = {scrollToSection}
             />
             <Contacts 
               ref={addToRefs}
@@ -125,12 +142,8 @@ function App() {
       </ThemeContext.Provider>
 
 
-
     </div>
   );
 }
 
 export default App;
-
-
-// React css snap scroll change active section in state when scrolling, all sections are in div element so window.scroll not working

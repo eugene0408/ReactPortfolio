@@ -17,7 +17,7 @@ export const PortfolioPagination = ({
     <Wrapper>
         {totalScreens.map(number => (
             <Item 
-                key={`portpag${number + Math.floor(Math.random() * 100000)}`}
+                key={`pagination${number + Math.floor(Math.random() * 100000)}`}
                 onClick={() => setCurScreen(number)}
                 isActive={number === curScreen ? true : false}
             />

@@ -31,7 +31,7 @@ export const PortfolioItem = ({
             <img src={desktop} alt={`${title}-img`} />
 
             <MobileScreen>
-              <img src={mobile} alt={`${title}-m-img`} />
+              <img src={mobile} alt={`${title}-small-img`} />
             </MobileScreen>
 
             <Tags>

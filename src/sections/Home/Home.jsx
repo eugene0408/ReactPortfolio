@@ -33,12 +33,11 @@ import {
 
 
 
-export const Home = React.forwardRef(({},ref) => {
-  const {selectedTheme, changeTheme, finalTheme} = useContext(ThemeContext)
+export const Home = React.forwardRef(({
+  scrollToSection
+}, ref) => {
 
-  const scrollNext = ()=> {
-    document.getElementById('s-skills').scrollIntoView({behavior: 'smooth'})
-  }
+  const {selectedTheme, changeTheme, finalTheme} = useContext(ThemeContext)
 
   return (
     <PageWrapper  
@@ -63,7 +62,9 @@ export const Home = React.forwardRef(({},ref) => {
               HTML | CSS | JS | REACT
             </HeaderSkills>
 
-            <AccentButton>
+            <AccentButton
+              onClick={() => scrollToSection("s-contacts")}
+            >
               Contact me
             </AccentButton>
 
@@ -90,7 +91,7 @@ export const Home = React.forwardRef(({},ref) => {
           xxl={4} xl={3} lg={3} md={3} 
           offset={{xxl:0, xl:0, lg:0, md:1}}
         >
-          <Hidden sm xs> {/* Hide on small devices */}
+          <Hidden sm xs> {/* Hide on small devices (grid) */}
 
             <AvatarWrapper>
               <AvatarBgWrapper>
@@ -106,7 +107,10 @@ export const Home = React.forwardRef(({},ref) => {
 
       {/* Next section button */}
       <ScrollIconsWrapper>
-        <ScrollLink theme={finalTheme} onClick={scrollNext}>
+        <ScrollLink 
+          theme={finalTheme} 
+          onClick={() => scrollToSection("s-skills")}
+        >
           <MouseIcon id="mouse-icon"/>
           <DownArrowIcon id="arrow-icon"/>
         </ScrollLink>

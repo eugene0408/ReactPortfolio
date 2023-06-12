@@ -12,14 +12,10 @@ import {
   MenuWrapper
 } from './SideMenu.styles'
 
-export const SideMenu = () => {
+export const SideMenu = ({scrollToSection}) => {
   const {finalTheme} = useContext(ThemeContext)
   const {active} = useContext(SectionContext)
 
-const scrollToSection = (sectionId)=> {
-  document.querySelector(sectionId).scrollIntoView({behavior: 'smooth'})
-  
-}
 
 const NavMenuLink = (props) => (
   <MenuLink
@@ -37,19 +33,19 @@ const NavMenuLink = (props) => (
     <MenuWrapper>
        <Menu>
 
-        <NavMenuLink to="#s-home">
+        <NavMenuLink to="s-home">
           <HomeIcon/>
         </NavMenuLink>
 
-        <NavMenuLink to="#s-skills">
+        <NavMenuLink to="s-skills">
           <CodeIcon/>
         </NavMenuLink>
 
-        <NavMenuLink to="#s-portfolio" >
+        <NavMenuLink to="s-portfolio" >
           <GalleryIcon/>
         </NavMenuLink>
 
-        <NavMenuLink to="#s-contacts">
+        <NavMenuLink to="s-contacts">
           <ContactsIcon/>
         </NavMenuLink>
       </Menu>
