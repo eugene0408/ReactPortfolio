@@ -111,8 +111,8 @@ export const Portfolio = forwardRef((
         setCurPortfolioPage(numberOfScreens)
         break;
       default:
-        scrollToSection('s-contacts')   // go to next section if scrolled to last item
         setHovered(false);
+        scrollToSection('s-contacts')   // go to next section if scrolled to last item
     }
   };
 
@@ -126,8 +126,8 @@ export const Portfolio = forwardRef((
         setCategoryScrolledBack(true)
         break;
       default:
-        scrollToSection('s-skills')  // go to prew section if scrolled to last item
         setHovered(false)
+        scrollToSection('s-skills')  // go to prew section if scrolled to last item
     }
   };
 
@@ -164,7 +164,6 @@ export const Portfolio = forwardRef((
     if(isUpSwipe) nextPage();
     if(isDownSwipe) prevPage();
 
-    setHovered(false) //allow page scroll
   }
   
 
