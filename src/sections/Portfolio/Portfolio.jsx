@@ -150,6 +150,7 @@ export const Portfolio = forwardRef((
   const onTouchStartHandler = (e) => {
     setTouchEnd(null)
     setTouchStart(e.targetTouches[0].clientY)
+    setHovered(true) //stop page scroll
   }
 
   const onTouchMoveHandler = (e) => setTouchEnd(e.targetTouches[0].clientY)
@@ -162,6 +163,8 @@ export const Portfolio = forwardRef((
 
     if(isUpSwipe) nextPage();
     if(isDownSwipe) prevPage();
+
+    setHovered(false) //allow page scroll
   }
   
 
