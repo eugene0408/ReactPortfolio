@@ -95,6 +95,10 @@
   --carrot: #E67E22;
   --orange: #F39C12;
 
+
+  --glassBg: rgba( 255,255,255, 0.07);
+  --glassBorder: rgba( 255,255,255, 0.02);
+
   --portfolio-shadow: 0 5px 10px 10px rgba(255, 255, 255, 0.02);
 
   --main-font: 'PoppinsWeb', 'Poppins', sans-serif;
@@ -106,6 +110,9 @@
   --menu-bg: #D9D9D9;
   --text-col: #000;
   --portfolio-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.37);
+
+  --glassBg: rgba( 0,0,0, 0.07);
+  --glassBorder: rgba( 0,0,0, 0.02);
 }
 
 body {
