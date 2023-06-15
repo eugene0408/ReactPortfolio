@@ -91,8 +91,8 @@ export const SideMenu = ({scrollToSection}) => {
         active={active}
         onClick={ () => scrollToSection(nextSection)}
       >
-        <DownArrow />
         {sectionNameFromId(nextSection)}
+        <DownArrow />
       </ArrowLinkNext>
 
     </MenuWrapper>

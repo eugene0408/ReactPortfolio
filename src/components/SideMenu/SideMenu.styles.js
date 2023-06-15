@@ -121,7 +121,7 @@ export const ArrowLinkNext = styled.div`
     display: ${props => props.nextSection ? 'flex' : 'none' };
     ${arrowLinkStyles}
     bottom: 0;
-    writing-mode: sideways-lr;
+    writing-mode: vertical-lr;
     margin-bottom: var(--wrapper-offset);
     & svg {
         width: 1em;

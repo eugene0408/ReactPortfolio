@@ -73,6 +73,7 @@ function App() {
       if(e.currentTarget.scrollTop >= sectionTop && e.currentTarget.scrollTop < sectionBottom) {
         if(currentSection !== section.id){
           setCurrentSection(section.id);
+          console.log(`active is ${section.id}`)
         }} 
       }) 
     
@@ -80,16 +81,15 @@ function App() {
 
 
   const scrollToSection = (sectionId) => {
-      setTimeout( () => {
-        const container = scrollContainerRef.current
-        const section = sectionsRefs.current.find((el) =>  el.id === sectionId)
+ 
+      const container = scrollContainerRef.current
+      const section = sectionsRefs.current.find((el) =>  el.id === sectionId)
 
+      if(section) {
         const sectionTop = section.offsetTop
         container.scrollTop = sectionTop
-
-      }, 200);
-
-      activeSectionCheck()  
+        console.log(`Scrolled to ${sectionTop} `)
+      }
   }
 
 
@@ -118,6 +118,7 @@ function App() {
             ref={scrollContainerRef}
             portfolioHovered = {portfolioHovered}
             onScroll = {(e) => activeSectionCheck(e)}
+            onTouchEnd = {(e) => activeSectionCheck(e)}
           >
             <Home 
               ref={addToRefs}

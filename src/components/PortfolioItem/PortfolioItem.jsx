@@ -35,7 +35,7 @@ export const PortfolioItem = ({
             </MobileScreen>
 
             <Tags>
-              { tags.map(tag => <span key={Math.floor((Math.random()*1000)+1)}>{tag}</span>) }
+              { tags.map(tag => <span key={tag + Math.floor((Math.random()*1000)+1) }>{tag}</span>) }
             </Tags>
 
           </DesctopScreen>
