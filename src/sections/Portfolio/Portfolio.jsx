@@ -1,5 +1,6 @@
 import React, {useState, useEffect, forwardRef} from 'react'
 import { Container, Row } from 'react-grid-system'
+import { useNavigate } from 'react-router-dom'
 
 import portfolioData from '../../data/portfolio.json'
 
@@ -22,10 +23,15 @@ import { PortfolioWrapper } from './Portfolio.styles'
 export const Portfolio = forwardRef((
   { hovered,
     setHovered,
-    scrollToSection
+    touchStart,
+    setTouchStart,
+    touchEnd,
+    setTouchEnd
   }, ref) => {
 // Category filter
   const categoriesList = ['react', 'js']
+
+  const navigate = useNavigate()
 
   const [portfolioCategory, 
     setPortfolioCategory] = useState(categoriesList[0]);
@@ -33,15 +39,11 @@ export const Portfolio = forwardRef((
     setCurPortfolioPage] = useState(1);
   const [categoryScrolledBack,
     setCategoryScrolledBack] = useState(false);
-  // Touch states
-  const [touchStart, 
-    setTouchStart] = useState(null)
-  const [touchEnd, 
-    setTouchEnd] = useState(null)
+
 
 
   const filterPortfolio = () => (
-      portfolioData.filter((item) => (item.category == portfolioCategory))
+      portfolioData.filter((item) => (item.category === portfolioCategory))
     );
 
 
@@ -112,7 +114,7 @@ export const Portfolio = forwardRef((
         break;
       default:
         setHovered(false);
-        scrollToSection('s-contacts')   // go to next section if scrolled to last item
+        navigate("/contacts")   // go to next section if scrolled to last item
     }
   };
 
@@ -127,7 +129,7 @@ export const Portfolio = forwardRef((
         break;
       default:
         setHovered(false)
-        scrollToSection('s-skills')  // go to prew section if scrolled to last item
+        navigate("/skills")  // go to prew section if scrolled to last item
     }
   };
 

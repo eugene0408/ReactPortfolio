@@ -1,16 +1,5 @@
 import styled from 'styled-components'
-
-const setLinkColor = (to, active, theme) => {
-  switch(true){
-    case to === active && theme === 'dark':
-        return 'var(--accent);'
-
-    case to === active && theme === 'light':
-        return 'var(--light-red); '
-
-    default: return 'var(--text-col)'
-  }
-}
+import { NavLink, Link } from 'react-router-dom'
 
 export const MenuWrapper = styled.div`
     position: fixed;
@@ -45,7 +34,7 @@ export const Menu = styled.nav`
         padding: 1.5em .6em;
     }
 `
-export const MenuLink = styled.button`
+export const MenuLink = styled(NavLink)`
     border: none;
     background: transparent;
     height: 28px;
@@ -55,10 +44,10 @@ export const MenuLink = styled.button`
     transition: all .2s ease-out;
     & svg {
         width: 28px;
-        transform: scale(${props => props.to === props.active ? '1.2' : '1'})
     }
+
     & svg path{
-        fill: ${props => setLinkColor(props.to, props.active, props.theme)}
+        fill: var(--text-col)
     }
 
     @media (hover: hover){
@@ -105,8 +94,8 @@ const arrowLinkStyles = `
     }
 `
 
-export const ArrowLinkPrev = styled.div`
-    display: ${props => props.prevSection ? 'flex' : 'none' };
+export const ArrowLinkPrev = styled(Link)`
+    display: ${props => props.prevsection ? 'flex' : 'none' };
     ${arrowLinkStyles}
     top: 0;
     writing-mode: vertical-lr;
@@ -117,8 +106,8 @@ export const ArrowLinkPrev = styled.div`
     }
 `
 
-export const ArrowLinkNext = styled.div`
-    display: ${props => props.nextSection ? 'flex' : 'none' };
+export const ArrowLinkNext = styled(Link)`
+    display: ${props => props.nextsection ? 'flex' : 'none' };
     ${arrowLinkStyles}
     bottom: 0;
     writing-mode: vertical-lr;

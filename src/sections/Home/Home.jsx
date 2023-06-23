@@ -33,9 +33,7 @@ import {
 
 
 
-export const Home = React.forwardRef(({
-  scrollToSection
-}, ref) => {
+export const Home = React.forwardRef(({}, ref) => {
 
   const {selectedTheme, changeTheme, finalTheme} = useContext(ThemeContext)
 
@@ -63,7 +61,6 @@ export const Home = React.forwardRef(({
             </HeaderSkills>
 
             <AccentButton
-              onClick={() => scrollToSection("s-contacts")}
             >
               Contact me
             </AccentButton>
@@ -109,7 +106,6 @@ export const Home = React.forwardRef(({
       <ScrollIconsWrapper>
         <ScrollLink 
           theme={finalTheme} 
-          onClick={() => scrollToSection("s-skills")}
         >
           <MouseIcon id="mouse-icon"/>
           <DownArrowIcon id="arrow-icon"/>

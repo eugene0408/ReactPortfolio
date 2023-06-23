@@ -1,15 +1,16 @@
 import React, { useRef, useState, useEffect } from "react";
 import useLocalStorage from "react-use-localstorage";
 import { setConfiguration } from 'react-grid-system';
+import { Routes, Route, useLocation, useNavigate, UNSAFE_NavigationContext } from 'react-router-dom'
 
 // Components
+import { Layout } from "./layout";
 import { Home, Skills, Portfolio, Contacts } from './sections'
-import { SideMenu, Topline } from "./components";
-import { SnapScrollContainer } from "./sections/Pages.styles";
+
 
 // Context
 export const ThemeContext = React.createContext();
-export const SectionContext = React.createContext();
+// export const SectionContext = React.createContext();
 
 // Grid congig
 setConfiguration({
@@ -30,6 +31,18 @@ function App() {
   const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const [selectedTheme, 
     setSelectedTheme] = useLocalStorage('theme', 'auto');
+  // Touch states
+  const [touchStart, 
+    setTouchStart] = useState(null)
+  const [touchEnd, 
+    setTouchEnd] = useState(null)
+
+
+  // Portfolio scroll pages
+  const [curPortfolioPage,
+    setCurPortfolioPage] = useState(1);
+  const [portfolioHovered,
+    setPortfolioHovered] = useState(false)
 
   
   const themeHandler = () => {
@@ -44,59 +57,91 @@ function App() {
   }
   const theme = themeHandler()
 
-  const [currentSection,
-    setCurrentSection] = useState('s-home')
-  // Portfolio scroll pages
-  const [curPortfolioPage,
-    setCurPortfolioPage] = useState(1);
-  const [portfolioHovered,
-    setPortfolioHovered] = useState(false)
+  const navigate = useNavigate()
+  // Current router location
+  const currentSection = useLocation().pathname
+  
+  // Router locations list
+  const sections = ['/', '/skills', '/portfolio', '/contacts']
+ 
+  // Return object names of next and previous sections
+  const neighborSections = () => {
+    const curSectionIndex = sections.findIndex(el => el === currentSection);
+    const isLastSection = curSectionIndex === (sections.length - 1);
+    const isFirstSection = curSectionIndex === 0;
 
-  const scrollContainerRef = useRef(null)
-  const sectionsRefs = useRef([])
-  sectionsRefs.current = []
-
-  const addToRefs = (el) => {
-    if(el && !sectionsRefs.current.includes(el)){
-      sectionsRefs.current.push(el)
+    const editName = (string) => {
+      string = string.substring(1)  // delete / at start
+      if(string === '') {
+        return 'home'          // replace / to home
+      } else {
+        return string
+      }
+    }
+    // Next and prev sections names
+    let next = !isLastSection ? editName(sections[curSectionIndex + 1]) : null;
+    let prev = !isFirstSection ? editName(sections[curSectionIndex - 1]) : null;
+    
+    return {
+      next: next,
+      prev: prev
     }
   }
 
-// Active section highlight
-  const activeSectionCheck = (e) => {
+  const prevSection = neighborSections().prev
+  const nextSection = neighborSections().next
 
-      sectionsRefs.current.forEach( section => {
-      const sectionTop = section.offsetTop - 50;
-      const sectionHeight = section.offsetHeight;
-      const sectionBottom = sectionTop + sectionHeight;
-  
-      if(e.currentTarget.scrollTop >= sectionTop && e.currentTarget.scrollTop < sectionBottom) {
-        if(currentSection !== section.id){
-          setCurrentSection(section.id);
-          console.log(`active is ${section.id}`)
-        }} 
-      }) 
-    
+  const checkPortfolioHover = () => {
+    if(currentSection !== '/portfolio') setPortfolioHovered(false)
   }
 
 
-  const scrollToSection = (sectionId) => {
- 
-      const container = scrollContainerRef.current
-      const section = sectionsRefs.current.find((el) =>  el.id === sectionId)
+  const scrolledToBottom = () =>  (window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight ? true : false;
+  const scrolledToTop = () => window.scrollY <= 0 ? true : false;
 
-      if(section) {
-        const sectionTop = section.offsetTop
-        container.scrollTop = sectionTop
-        console.log(`Scrolled to ${sectionTop} `)
-      }
+  const wheelHandler = (e) => {
+    checkPortfolioHover()
+    if(portfolioHovered) return;
+
+    const isScrollingUp = e.deltaY < 0;
+    const isScrollingDown = e.deltaY > 0;
+
+
+    if(scrolledToBottom() && isScrollingDown) navigate(nextSection)
+    if(scrolledToTop() && isScrollingUp) navigate(prevSection === 'home' ? '/' : prevSection)
   }
 
+  // Scroll sections on touchscreen
 
-    return (
+  // the required distance between touchStart and touchEnd to be detected as a swipe
+  const minSwipeDistance = 50 
+
+  const onTouchStartHandler = (e) => {
+    setTouchEnd(null)
+    setTouchStart(e.targetTouches[0].clientY)
+  }
+
+  const onTouchMoveHandler = (e) => setTouchEnd(e.targetTouches[0].clientY)
+
+  const onTouchEndHandler = () => {
+    if(!touchStart || !touchEnd || portfolioHovered) return
+    const distance = touchStart - touchEnd
+    const isUpSwipe = distance > minSwipeDistance
+    const isDownSwipe = distance < -minSwipeDistance 
+
+    if(isUpSwipe && scrolledToBottom()) navigate(nextSection);
+    if(isDownSwipe && scrolledToTop()) navigate(prevSection === 'home' ? '/' : prevSection);
+
+  }
+
+  return (
     <div 
       className="App" 
       data-theme={theme}
+      onWheel={(e) => wheelHandler(e)}
+      onTouchStart={(e) => onTouchStartHandler(e)}
+      onTouchMove={(e) => onTouchMoveHandler(e)}
+      onTouchEnd={(e) => onTouchEndHandler(e)}
     >
       <ThemeContext.Provider 
         value={{
@@ -105,43 +150,46 @@ function App() {
           finalTheme: theme
         }}
       >
-        <SectionContext.Provider
-          value={{
-            active: currentSection,
-          }}
-        >
-          <Topline />
-          <SideMenu
-            scrollToSection = {scrollToSection}
-          />
-          <SnapScrollContainer 
-            ref={scrollContainerRef}
-            portfolioHovered = {portfolioHovered}
-            onScroll = {(e) => activeSectionCheck(e)}
-            onTouchEnd = {(e) => activeSectionCheck(e)}
-          >
-            <Home 
-              ref={addToRefs}
-              scrollToSection = {scrollToSection}
-            />
-            <Skills
-              ref={addToRefs}
-            />
-            <Portfolio
-              ref={addToRefs}
-              curScreen={curPortfolioPage}
-              setCurScreen={setCurPortfolioPage}
-              hovered={portfolioHovered}
-              setHovered={setPortfolioHovered}
-              scrollToSection = {scrollToSection}
-            />
-            <Contacts 
-              ref={addToRefs}
-            />
-          </SnapScrollContainer>
-        </SectionContext.Provider>
-      </ThemeContext.Provider>
 
+        <Routes>
+          <Route
+            path="/"
+            element={<Layout 
+              prevSection={prevSection}
+              nextSection={nextSection}
+            />}
+          >
+
+            <Route 
+              index
+              element={<Home />}
+            />
+            <Route 
+              path="skills"
+              element={<Skills />}
+            />
+            <Route 
+              path="portfolio"
+              element={<Portfolio 
+                curScreen={curPortfolioPage}
+                setCurScreen={setCurPortfolioPage}
+                hovered={portfolioHovered}
+                setHovered={setPortfolioHovered}
+                touchStart={touchStart}
+                setTouchStart={setTouchStart}
+                touchEnd={touchEnd}
+                setTouchEnd={setTouchEnd}
+              />}
+            />
+            <Route 
+              path="contacts"
+              element={<Contacts />}
+            />
+
+          </Route>
+        </Routes>
+  
+      </ThemeContext.Provider>
 
     </div>
   );
