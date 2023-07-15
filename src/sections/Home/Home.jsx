@@ -3,7 +3,7 @@ import { ThemeContext } from '../../App'
 import { motion } from 'framer-motion'
 
 // Grid
-import { Container, Row, Col, Hidden } from 'react-grid-system'
+import { Container, Row, Col } from 'react-grid-system'
 
 // Images
 import {ReactComponent as DownloadIcon} from '../../assets/icons/document.svg'
