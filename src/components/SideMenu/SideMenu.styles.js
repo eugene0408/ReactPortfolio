@@ -1,16 +1,5 @@
 import styled from 'styled-components'
 
-const setLinkColor = (to, active, theme) => {
-  switch(true){
-    case to === active && theme === 'dark':
-        return 'var(--accent);'
-
-    case to === active && theme === 'light':
-        return 'var(--light-red); '
-
-    default: return 'var(--text-col)'
-  }
-}
 
 export const MenuWrapper = styled.div`
     position: fixed;
@@ -58,14 +47,14 @@ export const MenuLink = styled.button`
         transform: scale(${props => props.to === props.active ? '1.2' : '1'})
     }
     & svg path{
-        fill: ${props => setLinkColor(props.to, props.active, props.theme)}
+        fill: ${props => props.to === props.active ? 'var(--theme-accent)' : 'var(--text-col)'}
     }
 
     @media (hover: hover){
         &:hover {
             transform: scale(${props => props.to === props.active ? '1' : '1.2'});
             & svg path {
-                fill: ${props => props.theme === 'dark' ? 'var(--accent)' : 'var(--light-red)'};
+                fill: var(--theme-accent);
             }
         }
     } 

@@ -2,6 +2,8 @@ import React, { useRef, useState, useEffect } from "react";
 import useLocalStorage from "react-use-localstorage";
 import { setConfiguration } from 'react-grid-system';
 
+import { AnimatePresence } from "framer-motion";
+
 // Components
 import { Home, Skills, Portfolio, Contacts } from './sections'
 import { SideMenu, Topline } from "./components";
@@ -28,21 +30,9 @@ function App() {
 
   // Theme change
   const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const [selectedTheme, 
-    setSelectedTheme] = useLocalStorage('theme', 'auto');
+  const [theme, 
+    setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
 
-  
-  const themeHandler = () => {
-    switch(true){
-      case selectedTheme ==='auto' && defaultDark:
-        return 'dark'
-      case selectedTheme ==='auto':
-        return 'light'
-      default:
-        return selectedTheme
-    }
-  }
-  const theme = themeHandler()
 
   const [currentSection,
     setCurrentSection] = useState('s-home')
@@ -73,7 +63,6 @@ function App() {
       if(e.currentTarget.scrollTop >= sectionTop && e.currentTarget.scrollTop < sectionBottom) {
         if(currentSection !== section.id){
           setCurrentSection(section.id);
-          console.log(`active is ${section.id}`)
         }} 
       }) 
     
@@ -88,7 +77,7 @@ function App() {
       if(section) {
         const sectionTop = section.offsetTop
         container.scrollTop = sectionTop
-        console.log(`Scrolled to ${sectionTop} `)
+        // console.log(`Scrolled to ${sectionTop} `)
       }
   }
 
@@ -100,9 +89,8 @@ function App() {
     >
       <ThemeContext.Provider 
         value={{
-          selectedTheme: selectedTheme, 
-          changeTheme: setSelectedTheme, 
-          finalTheme: theme
+          theme: theme,
+          changeTheme: setTheme
         }}
       >
         <SectionContext.Provider
@@ -114,31 +102,33 @@ function App() {
           <SideMenu
             scrollToSection = {scrollToSection}
           />
-          <SnapScrollContainer 
-            ref={scrollContainerRef}
-            portfolioHovered = {portfolioHovered}
-            onScroll = {(e) => activeSectionCheck(e)}
-            onTouchEnd = {(e) => activeSectionCheck(e)}
-          >
-            <Home 
-              ref={addToRefs}
-              scrollToSection = {scrollToSection}
-            />
-            <Skills
-              ref={addToRefs}
-            />
-            <Portfolio
-              ref={addToRefs}
-              curScreen={curPortfolioPage}
-              setCurScreen={setCurPortfolioPage}
-              hovered={portfolioHovered}
-              setHovered={setPortfolioHovered}
-              scrollToSection = {scrollToSection}
-            />
-            <Contacts 
-              ref={addToRefs}
-            />
-          </SnapScrollContainer>
+          <AnimatePresence>
+            <SnapScrollContainer 
+              ref={scrollContainerRef}
+              portfolioHovered = {portfolioHovered}
+              onScroll = {(e) => activeSectionCheck(e)}
+              onTouchEnd = {(e) => activeSectionCheck(e)}
+            >
+              <Home 
+                ref={addToRefs}
+                scrollToSection = {scrollToSection}
+              />
+              <Skills
+                ref={addToRefs}
+              />
+              <Portfolio
+                ref={addToRefs}
+                curScreen={curPortfolioPage}
+                setCurScreen={setCurPortfolioPage}
+                hovered={portfolioHovered}
+                setHovered={setPortfolioHovered}
+                scrollToSection = {scrollToSection}
+              />
+              <Contacts 
+                ref={addToRefs}
+              />
+            </SnapScrollContainer>
+          </AnimatePresence>
         </SectionContext.Provider>
       </ThemeContext.Provider>
 

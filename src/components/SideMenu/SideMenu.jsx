@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import { ThemeContext, SectionContext } from '../../App'
+import { SectionContext } from '../../App'
 
 import { ReactComponent as HomeIcon} from '../../assets/icons/menu/home.svg'
 import { ReactComponent as CodeIcon} from '../../assets/icons/menu/code.svg'
@@ -17,13 +17,11 @@ import {
 } from './SideMenu.styles'
 
 export const SideMenu = ({scrollToSection}) => {
-  const {finalTheme} = useContext(ThemeContext)
   const {active} = useContext(SectionContext)
 
   const NavMenuLink = (props) => (
     <MenuLink
       to={props.to}
-      theme={finalTheme}
       active={active}
       onClick={() => scrollToSection(props.to)}
     >

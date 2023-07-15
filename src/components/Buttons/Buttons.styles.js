@@ -23,6 +23,11 @@ export const AccentButton = styled(Button)`
         width: 200px;
         font-size: 16px;
     }
+    @media (max-width: 768px) {
+        height: 40px;
+        width: 160px;
+        font-size: 14px;
+    }
 `
 
 export const CVButton = styled(Button)`

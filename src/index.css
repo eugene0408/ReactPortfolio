@@ -89,6 +89,7 @@
   --main-bg: #15141B;
   --menu-bg: #222430;
   --light-red: #FB627D;
+  --theme-accent: #FFC831;
   --text-col: #fff;
   --green: #27AE60;
   --greensea: #16A085;
@@ -109,6 +110,7 @@
   --main-bg: #fff;
   --menu-bg: #D9D9D9;
   --text-col: #000;
+  --theme-accent: #FB627D;
   --portfolio-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.37);
 
   --glassBg: rgba( 0,0,0, 0.07);

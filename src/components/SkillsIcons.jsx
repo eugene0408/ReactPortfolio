@@ -47,5 +47,6 @@ export const SkillsIcons = ({name}) => {
             return(<FigmaIcon/>)
         case "photoshop":
             return(<PhotoshopIcon/>)
+        default: return(<span>no icon</span>)
     }
 }

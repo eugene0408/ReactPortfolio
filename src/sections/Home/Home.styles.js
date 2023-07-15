@@ -1,4 +1,4 @@
-import styled, {keyframes} from "styled-components";
+import styled from "styled-components";
 
 
 export const HeaderWrapper = styled.div`
@@ -9,18 +9,37 @@ export const HeaderWrapper = styled.div`
     height: 100vh;
 `
 
-export const HeaderTitle = styled.h1`
-    font-family: var(--main-font);
-    font-weight: 700;
-    font-size: 64px;
-    color: var(--text-col); 
-    line-height: 1.3;
-    margin-bottom: .5rem;
-    @media (max-width: 1200px) {
-        font-size: 48px;
+export const HeaderTitle = styled.div`
+    & h2 {
+        position: relative;
+        font-family: var(--main-font);
+        /* background: var(--main-bg); */
+        font-weight: 700;
+        font-size: 64px;
+        color: var(--text-col); 
+        line-height: 1.3;
+        margin-top: 0;
+        margin-bottom: 0;
+        z-index: 15;
     }
-    @media (max-width: 768px) {
-        font-size: 36px;
+
+    @media (max-width: 1200px) {
+        & h2 {
+            font-size: 48px;
+        }
+    }
+    @media (max-width: 768px)  {
+        & h2 {
+            font-size: 36px;
+        }
+    }
+    @media (max-width: 768px)  {
+        & h2 {
+            font-size: 28px;
+        }
+    }
+    @media (max-width: 768px)  {
+        margin-top: 12rem;
     }
 `
 
@@ -32,6 +51,9 @@ export const HeaderSkills = styled.p`
     @media (max-width: 1200px) {
         font-size: 14px;
     }
+    @media (max-width: 768px) {
+        font-size: 12px;
+    }
 `
 
 export const AvatarWrapper = styled.div`
@@ -41,12 +63,20 @@ export const AvatarWrapper = styled.div`
     align-items: center;
     height: 100%;
     & img {
-        height: 500px;
+        height: 450px;
         z-index: 2;
     }
     @media (max-width: 1200px) {
         & img {
             height: 340px;
+        }      
+    }
+    @media (max-width: 768px) {
+        position: absolute;
+        top: 0;
+        height: 80vh;
+        & img {
+            height: 250px;
         }      
     }
 `
@@ -60,29 +90,21 @@ export const AvatarBgWrapper = styled.div`
 `
 
 export const AvatarBg = styled.div`
-    --size: 320px;
+    --size: 300px;
     border-radius: 50%;
     height: var(--size);
     width: var(--size);
     background: #D9D9D9;
     margin-top: 3em;
     z-index: 1;
-    transition: .3s ease;
-    ${AvatarWrapper}:hover & {
-        --hov-size: 375px;
-        height: var(--hov-size);
-        width: var(--hov-size);
-    }
     @media (max-width: 1200px) {
         --size: 220px;
-        ${AvatarWrapper}:hover & {
-            --hov-size: 250px;
-        }
+    }
+    @media (max-width: 768px) {
+        --size: 150px;
     }
 `
-const spinAnimation = keyframes`
-    100% {transform: rotateZ(360deg)};
-`
+
 
 export const ThemeImageWrapper = styled.div`
     --size: 150px;
@@ -95,7 +117,6 @@ export const ThemeImageWrapper = styled.div`
     top: 15%;
     left: 45%;
     z-index: 2;
-    animation: ${spinAnimation} 7s infinite linear;
     cursor: pointer;
     & img {
         height: 100%;
@@ -104,26 +125,17 @@ export const ThemeImageWrapper = styled.div`
     @media (max-width: 1200px) {
         --size: 120px;
     }
-`
-const scrollAnimation = keyframes`
-    0% {
-        opacity: 0;
-        transform: translateY(-150%);
-    }
-    50% {
-        opacity: 1;
-        transform: translateY(-75%);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(0);
+    @media (max-width: 768px) {
+        --size: 80px;
+        left: 30%;
     }
 `
 
-export const ScrollIconsWrapper = styled.div`
+
+export const ScrollDownWrapper = styled.div`
     position: absolute;
     width: 100%;
-    bottom: 1.5rem;
+    bottom: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -133,43 +145,25 @@ export const ScrollIconsWrapper = styled.div`
 `
 
 export const ScrollLink = styled.a`
+    --size: 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     cursor: pointer;    
-    & svg path {
-        fill: var(--text-col);
-        transition: .3s ease;
-    }
+    height: var(--size);
+    width: var(--size);
     &:hover {
-        svg path {
-            fill: ${props => props.theme === "dark" ? 'var(--accent)' : 'var(--light-red)'};
-        }
-    }
-    & #mouse-icon {
-        height: 42px;
-        padding-bottom: 1.5rem;
-    }
-    & #arrow-icon {
-        height: 10px;
-        animation: ${scrollAnimation} 1.2s linear infinite;
-    }
-    @media (max-width: 1200px) {
-        & #mouse-icon {
-            height: 36px;
-        }
-        & #arrow-icon {
-            height: 7px;
-        }
-    }
-    @media (max-width: 768px) {
-        & #mouse-icon {
-            display: none;
-        }
-        & #arrow-icon {
-            height: 15px;
-            animation: ${scrollAnimation} 1.5s linear infinite;
+        & div {
+            border-left: 2px solid var(--theme-accent);
+            border-bottom: 2px solid var(--theme-accent);
         }
     }
 `   
+
+export const DownArrow = styled.div`
+    height: 100%;
+    width: 100%;
+    border-left: 1px solid var(--text-col);
+    border-bottom: 1px solid var(--text-col);
+`

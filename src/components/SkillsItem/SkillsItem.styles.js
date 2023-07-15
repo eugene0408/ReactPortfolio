@@ -6,19 +6,13 @@ const flexCenter = `
     align-items: center;
 `
 
-const darkGlass = 'rgba( 0,0,0, 0.07)',
-      darkBorder = 'rgba( 0,0,0, 0.02)',
-      lightGlass = 'rgba( 255,255,255, 0.07)',
-      lightBorder = 'rgba( 255,255,255, 0.02)';
-
-
 const levelColor = (level) => {
   switch(true){
     case level >= 70:
         return 'var(--green)';
     case level >= 50:
         return 'var(--greensea)';
-    case level >= 30:
+    default:
         return 'var(--orange)';
   }
 }
@@ -46,8 +40,8 @@ export const Wrapper = styled.div`
         height: 120%;
         width: 90%;
         border-radius: 10px;
-        background: ${props => props.theme === 'dark' ? lightGlass : darkGlass};
-        border: 1px solid ${props => props.theme === 'dark' ? lightBorder : darkBorder};
+        background: var(--glassBg);
+        border: 1px solid var(--glassBorder);
         backdrop-filter: blur(4px);
         z-index: 1;
     }
