@@ -1,17 +1,15 @@
 import React, {useContext, useEffect, useState} from 'react'
-import { motion, LayoutGroup } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 import { ThemeContext } from '../../../App'
 
 import { ReactComponent as MoonIcon } from '../../../assets/icons/moon.svg'
 import { ReactComponent as SunIcon } from '../../../assets/icons/sun.svg'
-import { ReactComponent as AutoIcon } from '../../../assets/icons/auto.svg'
 
 import {
     Container,
     Wrapper,
     Item,
-    // IndicatorWrapper,
     ThemeIndicator
 } from './ThemeSwitch.styles'
 
@@ -21,7 +19,6 @@ export const ThemeSwitch = () => {
 
     const switchHandler = () => {
         changeTheme(theme === 'dark' ? 'light' : 'dark')
-        // setPosition(theme === 'light' ? 0 : 34)
     }
 
     const ThemeIcon = ({title}) => {

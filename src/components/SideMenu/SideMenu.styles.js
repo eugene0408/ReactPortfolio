@@ -10,7 +10,7 @@ export const MenuWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 99;
+    z-index: 98;
     @media (max-width: 1200px) {
         left: 10px;
     }

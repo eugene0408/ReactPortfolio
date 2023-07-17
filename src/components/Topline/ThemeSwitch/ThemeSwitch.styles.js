@@ -6,10 +6,6 @@ const wrapperHeight = 36,  //px
       indicatorSize = 34,
       iconSize = 25
 
-const darkGlass = 'rgba( 0,0,0, 0.07)',
-      darkBorder = 'rgba( 0,0,0, 0.02)',
-      lightGlass = 'rgba( 255,255,255, 0.07)',
-      lightBorder = 'rgba( 255,255,255, 0.02)';
 
 
 export const Wrapper = styled.div`
@@ -20,8 +16,8 @@ export const Wrapper = styled.div`
     border-radius: ${wrapperHeight}px;
     height: ${wrapperHeight}px;
     width: ${wrapperWidth}px;
-    background: ${props => props.theme === "light" ? darkGlass : lightGlass};
-    border: 1px solid ${props => props.theme === "light" ? darkBorder : lightBorder };
+    background: var(--glassBg);
+    border: 1px solid var(--glassBorder);
     backdrop-filter: blur(4px);
     cursor: pointer;
     z-index: 99;

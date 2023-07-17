@@ -12,8 +12,9 @@ export const HeaderWrapper = styled.div`
 export const HeaderTitle = styled.div`
     & h2 {
         position: relative;
+        width: fit-content;
         font-family: var(--main-font);
-        /* background: var(--main-bg); */
+        /* background: var(--glassBg); */
         font-weight: 700;
         font-size: 64px;
         color: var(--text-col); 
@@ -39,7 +40,24 @@ export const HeaderTitle = styled.div`
         }
     }
     @media (max-width: 768px)  {
-        margin-top: 12rem;
+        margin-top: 15rem;
+        & h2::before {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: var(--glassBg);
+            border: 1px solid var(--glassBorder);
+            border-bottom: none;
+            border-top: none;
+            backdrop-filter: blur(4px);
+            border-radius: 5px;
+            padding: 0 5px 0 0;
+            z-index: -1;
+        }
     }
 `
 
@@ -53,6 +71,7 @@ export const HeaderSkills = styled.p`
     }
     @media (max-width: 768px) {
         font-size: 12px;
+        margin: .6em 0
     }
 `
 
@@ -74,7 +93,7 @@ export const AvatarWrapper = styled.div`
     @media (max-width: 768px) {
         position: absolute;
         top: 0;
-        height: 80vh;
+        height: 92vh;
         & img {
             height: 250px;
         }      
@@ -101,7 +120,7 @@ export const AvatarBg = styled.div`
         --size: 220px;
     }
     @media (max-width: 768px) {
-        --size: 150px;
+        --size: 160px;
     }
 `
 
@@ -126,7 +145,7 @@ export const ThemeImageWrapper = styled.div`
         --size: 120px;
     }
     @media (max-width: 768px) {
-        --size: 80px;
+        --size: 70px;
         left: 30%;
     }
 `

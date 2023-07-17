@@ -122,7 +122,7 @@ export const Home = React.forwardRef(({
         {/* Title container*/}
         <Col 
           xxl={6} xl={7} lg={8} md={8} sm={10} xs={10}
-          offset={{xxl:1, xl:1, lg:1, md:0, sm:1.5, xs:1.5}}
+          offset={{xxl:1, xl:1, lg:1, md:0, sm:1.5, xs:2}}
           order={{md: 1, sm: 2, xs: 2}}
         >
           <HeaderWrapper
@@ -225,7 +225,7 @@ export const Home = React.forwardRef(({
         {/* Image container*/}
         <Col
           xxl={4} xl={3} lg={3} md={3} sm={3} xs={3}
-          offset={{xxl:0, xl:0, lg:0, md:1, sm: 6, xs: 6}}
+          offset={{xxl:0, xl:0, lg:0, md:1, sm: 6, xs: 4}}
           order={{md: 2, sm: 1, xs: 1}}
         >
 

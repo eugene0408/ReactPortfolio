@@ -24,9 +24,9 @@ export const AccentButton = styled(Button)`
         font-size: 16px;
     }
     @media (max-width: 768px) {
-        height: 40px;
+        height: 36px;
         width: 160px;
-        font-size: 14px;
+        font-size: 12px;
     }
 `
 
@@ -42,9 +42,9 @@ export const CVButton = styled(Button)`
     margin-top: .5rem;
     font-family: var(--bg-font);
     @media (max-width: 992px) {
-        height: 36px;
+        height: 34px;
         width: 160px;
-        font-size: 14px;
+        font-size: 12px;
     }
 `
 
@@ -69,6 +69,11 @@ export const CVIcon = styled.div`
     @media (max-width: 992px) {
         & svg {
             height: 22px;
+        }
+    }
+    @media (max-width: 768px) {
+        & svg {
+            height: 18px;
         }
     }
 `
