@@ -1,6 +1,6 @@
 import { SideMenu } from "./SideMenu/SideMenu";
 import { Topline } from "./Topline/Topline";
-import { SkillsItem } from "./SkillsItem/SkillsItem";
+import { MSkillsItem } from "./SkillsItem/SkillsItem";
 import { PortfolioCategorySelect } from "./PortfolioItem/PortfolioCategorySelect";
 import { PortfolioItem } from "./PortfolioItem/PortfolioItem";
 import { PortfolioPagination } from "./PortfolioPagination/PortfolioPagination";
@@ -14,7 +14,7 @@ import {
 export {
     SideMenu,
     Topline,
-    SkillsItem,
+    MSkillsItem,
     PortfolioCategorySelect,
     PortfolioItem,
     PortfolioPagination,

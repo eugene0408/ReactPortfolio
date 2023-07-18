@@ -1,9 +1,10 @@
 import React, {forwardRef} from 'react'
 import { Container, Col } from 'react-grid-system'
+import {motion} from 'framer-motion'
 
 import skillsData from '../../data/skills.json'
 
-import { SkillsItem } from '../../components'
+import { MSkillsItem} from '../../components'
 
 import { 
   PageWrapper,
@@ -29,6 +30,23 @@ const colProps = {
   }
 }
 
+const skillCardsAnimation = {
+  hidden: {
+    opacity: 0,
+    x: -50
+  },
+  visible: custom => ({
+    opacity: 1,
+    x: 0,
+    transition: {
+      when: "beforeChildren",
+      duration: 0.7,
+      delay: custom * 0.2,
+      type: "spring"
+    }
+  })
+}
+
 
 export const Skills = forwardRef((props, ref) => {
   return (
@@ -38,17 +56,28 @@ export const Skills = forwardRef((props, ref) => {
     >
       <PageHeader> My skills </PageHeader>
 
-      <Container style={{paddingBottom: "250px"}}>
+      <Container 
+        style={{paddingBottom: "250px"}}
+
+      >
         <SkillsRow>
           <RowHeader>
             Layout
           </RowHeader>
           {
-            skillsData.layout.map((item)=> (
-              <Col key = {item.name} {...colProps}>
-                <SkillsItem 
+            skillsData.layout.map((item, index)=> (
+              <Col 
+                key = {item.name} 
+                {...colProps}
+              >
+                <MSkillsItem
                   name={item.name}
                   level={item.level}
+                  variants={skillCardsAnimation}
+                  initial='hidden'
+                  whileInView='visible'
+                  whileHover='hover'
+                  custom={index}
                 />
               </Col>
             ))
@@ -60,11 +89,15 @@ export const Skills = forwardRef((props, ref) => {
             Programing
           </RowHeader>
           {
-            skillsData.programing.map((item)=> (
+            skillsData.programing.map((item, index)=> (
               <Col key={item.name} {...colProps}>
-                <SkillsItem 
+                <MSkillsItem
                   name={item.name}
                   level={item.level}
+                  variants={skillCardsAnimation}
+                  initial='hidden'
+                  whileInView='visible'
+                  custom={index + 0.3}
                 />
               </Col>
             ))
@@ -76,11 +109,15 @@ export const Skills = forwardRef((props, ref) => {
             Tools
           </RowHeader>
           {
-            skillsData.tools.map((item)=> (
+            skillsData.tools.map((item, index)=> (
               <Col key={item.name} {...colProps}>
-                <SkillsItem 
+                <MSkillsItem
                   name={item.name}
                   level={item.level}
+                  variants={skillCardsAnimation}
+                  initial='hidden'
+                  whileInView='visible'
+                  custom={index + 0.6}
                 />
               </Col>
             ))
@@ -92,14 +129,18 @@ export const Skills = forwardRef((props, ref) => {
             Graphics
           </RowHeader>
           {
-            skillsData.graphic.map((item)=> (
+            skillsData.graphic.map((item, index)=> (
               <Col 
                 key={item.name}
                 {...colProps}
               >
-                <SkillsItem 
+                <MSkillsItem
                   name={item.name}
                   level={item.level}
+                  variants={skillCardsAnimation}
+                  initial='hidden'
+                  whileInView='visible'
+                  custom={index + 0.9}
                 />
               </Col>
             ))

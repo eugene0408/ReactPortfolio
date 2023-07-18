@@ -77,7 +77,6 @@ function App() {
       if(section) {
         const sectionTop = section.offsetTop
         container.scrollTop = sectionTop
-        // console.log(`Scrolled to ${sectionTop} `)
       }
   }
 
@@ -105,6 +104,7 @@ function App() {
           <AnimatePresence>
             <SnapScrollContainer 
               ref={scrollContainerRef}
+              currentSection={currentSection}
               portfolioHovered = {portfolioHovered}
               onScroll = {(e) => activeSectionCheck(e)}
               onTouchEnd = {(e) => activeSectionCheck(e)}

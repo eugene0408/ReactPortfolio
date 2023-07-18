@@ -1,4 +1,5 @@
 import styled, {keyframes} from "styled-components";
+import {motion} from 'framer-motion'
 
 const flexCenter = `
     display: flex;
@@ -17,14 +18,6 @@ const levelColor = (level) => {
   }
 }
 
-const levelAnimate = (val) => keyframes`
-    0% {
-        width: 0;
-    }
-    100%{
-        width: ${val};
-    }
-`
 
 export const Wrapper = styled.div`
     ${flexCenter}
@@ -47,7 +40,8 @@ export const Wrapper = styled.div`
     }
     @media (max-width: 576px){
         &::before{
-            width: 100%;
+            width: 90%;
+            height: 130%;
         }
     }
 
@@ -59,21 +53,22 @@ export const IconWrapper = styled.div`
     z-index: 2;
     & svg {
         height: var(--icon-size);
-        transition: all .3s ease;
+        /* transition: all .3s ease; */
         & path {
             fill: var(--text-col)
         }
     }
-    @media (hover: hover) {
+    /* @media (hover: hover) {
         ${Wrapper}:hover & svg{
             transform: scale(1.2);
             & path {
                 fill: var(--accent)
             }
         }
-    }
+    } */
     @media (max-width: 576px) {
-        --icon-size: 36px;
+        --icon-size: 25px;
+        margin-top: .5em;
     }
 `
 export const Title = styled.h3`
@@ -83,11 +78,12 @@ export const Title = styled.h3`
     font-weight: 500;
     z-index: 2;
     @media (max-width: 576px) {
-        font-size: 16px;
+        font-size: 14px;
+        margin: .7em 0
     }
 `
 
-export const Line = styled.div`
+export const LineWrapper = styled.div`
     position: relative;
     height: 7px;
     width: 50%;
@@ -95,19 +91,19 @@ export const Line = styled.div`
     border-radius: 10px;
     z-index: 2;
     overflow: hidden;
-    transition: all .3s ease;
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        background: ${props => levelColor(props.level)};
-        height: 100%;
-        width: ${props => props.level}%;
-    }
-    @media (hover: hover) {
-        ${Wrapper}:hover &::before{
-            animation: ${props => levelAnimate(props.level)} ${props => props.level / 150}s linear;
-        }
-    }
+`
+
+export const Line = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: ${props => levelColor(props.level)};
+    height: 100%;
+`
+export const HoverLine = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: ${props => levelColor(props.level)};
+    height: 100%;
 `
