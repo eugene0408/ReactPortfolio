@@ -41,7 +41,7 @@ export const Portfolio = forwardRef((
 
 
   const filterPortfolio = () => (
-      portfolioData.filter((item) => (item.category == portfolioCategory))
+      portfolioData.filter((item) => (item.category === portfolioCategory))
     );
 
 
@@ -137,8 +137,12 @@ export const Portfolio = forwardRef((
     const isScrollingUp = e.deltaY < 0;
     const isScrollingDown = e.deltaY > 0;
 
-    if(isScrollingDown && !isTouchDevice()) nextPage();  
-    if(isScrollingUp && !isTouchDevice()) prevPage();
+    const scrollPages = () => {
+      if(isScrollingDown && !isTouchDevice()) nextPage();  
+      if(isScrollingUp && !isTouchDevice()) prevPage();
+    }
+
+    setTimeout(scrollPages(), 100)
 
   }
 

@@ -53,22 +53,19 @@ export const IconWrapper = styled.div`
     z-index: 2;
     & svg {
         height: var(--icon-size);
-        /* transition: all .3s ease; */
         & path {
             fill: var(--text-col)
         }
     }
-    /* @media (hover: hover) {
-        ${Wrapper}:hover & svg{
-            transform: scale(1.2);
-            & path {
-                fill: var(--accent)
-            }
-        }
-    } */
     @media (max-width: 576px) {
         --icon-size: 25px;
         margin-top: .5em;
+    }
+    @media (hover: hover) {
+        ${Wrapper}:hover & svg path {
+            fill: var(--theme-accent);
+            transition: all .3s ease-in-out;
+        }      
     }
 `
 export const Title = styled.h3`

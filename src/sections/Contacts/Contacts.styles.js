@@ -1,12 +1,6 @@
 import styled from "styled-components";
 import { AccentButton } from "../../components";
 
-const darkGlass = 'rgba( 0,0,0, 0.07)',
-      darkBorder = 'rgba( 0,0,0, 0.02)',
-      lightGlass = 'rgba( 255,255,255, 0.07)',
-      lightBorder = 'rgba( 255,255,255, 0.02)';
-
-
 
 export const ContactContainer = styled.div`
     height: 100%;
@@ -34,8 +28,8 @@ export const ContactItem = styled.div`
         width: 100%;
         height: 100%;
         border-radius: 10px;
-        background: ${props => props.theme === 'dark' ? lightGlass : darkGlass};
-        border: 1px solid ${props => props.theme === 'dark' ? lightBorder : darkBorder};
+        background: var(--glassBg);
+        border: 1px solid var(--glassBorder);
         backdrop-filter: blur(4px);
         z-index: 1;
     }
@@ -159,8 +153,8 @@ export const Form = styled.form `
         width: 100%;
         height: 100%;
         border-radius: 10px;
-        background: ${props => props.theme === 'dark' ? lightGlass : darkGlass};
-        border: 1px solid ${props => props.theme === 'dark' ? lightBorder : darkBorder};
+        background: var(--glassBg);
+        border: 1px solid var(--galssBorder);
         backdrop-filter: blur(4px);
         z-index: 1;
     }

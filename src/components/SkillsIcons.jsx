@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import { ReactComponent as HTMLIcon } from '../assets/icons/skills/html.svg';
 import { ReactComponent as CssIcon } from '../assets/icons/skills/css.svg';
 import { ReactComponent as SassIcon } from '../assets/icons/skills/sass.svg';
@@ -17,10 +18,11 @@ import { ReactComponent as PhotoshopIcon } from '../assets/icons/skills/photosho
 
 
 
+
 export const SkillsIcons = ({name}) => {
     switch(name){
         case "html":
-            return(<HTMLIcon/>)
+            return(<HTMLIcon />)
         case "css":
             return(<CssIcon/>)
         case "sass":
@@ -47,6 +49,6 @@ export const SkillsIcons = ({name}) => {
             return(<FigmaIcon/>)
         case "photoshop":
             return(<PhotoshopIcon/>)
-        default: return(<span>no icon</span>)
+        default: return(<span>icon</span>)
     }
 }

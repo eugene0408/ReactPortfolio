@@ -33,14 +33,16 @@ const colProps = {
 const skillCardsAnimation = {
   hidden: {
     opacity: 0,
-    x: -50
+    scale: 0,
+    x: 150
   },
   visible: custom => ({
     opacity: 1,
+    scale: 1,
     x: 0,
     transition: {
       when: "beforeChildren",
-      duration: 0.7,
+      duration: 0.5,
       delay: custom * 0.2,
       type: "spring"
     }
@@ -97,6 +99,7 @@ export const Skills = forwardRef((props, ref) => {
                   variants={skillCardsAnimation}
                   initial='hidden'
                   whileInView='visible'
+                  whileHover='hover'
                   custom={index + 0.3}
                 />
               </Col>
@@ -117,6 +120,7 @@ export const Skills = forwardRef((props, ref) => {
                   variants={skillCardsAnimation}
                   initial='hidden'
                   whileInView='visible'
+                  whileHover='hover'
                   custom={index + 0.6}
                 />
               </Col>
@@ -140,6 +144,7 @@ export const Skills = forwardRef((props, ref) => {
                   variants={skillCardsAnimation}
                   initial='hidden'
                   whileInView='visible'
+                  whileHover='hover'
                   custom={index + 0.9}
                 />
               </Col>

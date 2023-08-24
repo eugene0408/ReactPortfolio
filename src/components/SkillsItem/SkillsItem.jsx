@@ -16,6 +16,7 @@ import {
  } from './SkillsItem.styles'
 
 
+// Line appearence animation
 const lineAnimation = {
   hidden: {
     width: 0
@@ -23,30 +24,32 @@ const lineAnimation = {
   visible: custom => ({
     width: `${custom}%`,
     transition: {
-      duration: 0.4
+      duration: 0.3
     }
   }),
   hover: {
-    width: 0,
+    background: 'var(--glassBg)' // hide to animate another line
   }
 
 }
 
+// Hovered line
 const lineHoverAnimation = {
   hidden: {
-    width: 0
+    width: 0,
   },
   visible: {
-    width: 0
+    width: 0, // hide when is not hovered
   },
   hover: custom => ({
-    width: `${custom}%`,
+    width: `${custom}%`, //onhover animation
     transition: {
-      duration: 0.4,
+      duration: 0.8,
       type: "spring"
     }
   })
 }
+
 
 
 
@@ -59,7 +62,9 @@ const SkillsItem = forwardRef(({name, level}, ref) => {
       ref={ref}
     >
         <IconWrapper>
-            <SkillsIcons name={name} />
+            <SkillsIcons 
+              name={name} 
+            />
         </IconWrapper>
 
         <Title>

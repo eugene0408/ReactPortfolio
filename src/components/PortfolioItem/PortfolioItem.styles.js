@@ -19,15 +19,15 @@ export const Wrapper = styled.div`
     &:nth-of-type(2n + 1) > div:nth-child(1){
         justify-content: flex-start;
     }
-    &:nth-of-type(2n + 1) h3, &:nth-of-type(2n + 1) p {
-        text-align: right;
-    }
     &:nth-of-type(2n + 2) > div:nth-child(1){
         justify-content: flex-end;
     }
+    &:nth-of-type(2n + 1) h3, &:nth-of-type(2n + 1) p {
+        text-align: right;
+    }
     &:nth-of-type(2n + 2) h3, &:nth-of-type(2n + 2) p {
         text-align: left;
-    }
+    } 
     @media (max-width: 1600px) {
         height: 280px;
     }
@@ -66,23 +66,10 @@ export const ScreensWrapper = styled.div`
         height: 50%;
     }
 `
-
-
-export const DesctopScreen = styled.div`
+export const ScreensContainer = styled.div`
+    position: relative;
     height: 70%;
     width: 80%;
-    border-radius: 10px;
-    box-shadow: var(--portfolio-shadow);
-    transform-style: preserve-3d;
-    transition: .3s ease;
-    & img {
-        height: 100%;
-        width: 100%;
-        border-radius: 10px;
-    }
-    &:hover {
-        transform: perspective(1000px) rotateY(10deg) translateZ(10px);
-    }
     @media (max-width: 1600px) {
         width: 75%;
     }
@@ -103,19 +90,33 @@ export const DesctopScreen = styled.div`
         height: 60%;
     }
 `
+
+export const DesctopScreen = styled.div`
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: var(--portfolio-shadow);
+    & img {
+        height: 100%;
+        width: 100%;
+        border-radius: 10px;
+    }
+    /* &:hover {
+        transform: perspective(1000px) rotateY(10deg) translateZ(10px);
+    } */
+
+`
 export const Tags = styled.div`
     position: absolute;
-    bottom: -12%;
+    bottom: -15%;
     left: 0;
     padding-left: .5em;
-    & span {
+    display: flex;
+    & div {
         margin-right: 1em;
         cursor: pointer;
-        opacity: 0.8;
-        &:hover {
-            color: var(--light-red);
-            opacity: 1;
-        }
+        display: flex;
+        position: relative;
     }
     @media (max-width: 576px) {
         display: none;
@@ -124,22 +125,24 @@ export const Tags = styled.div`
 
 export const MobileScreen = styled.div`
     height: 95%;
-    width: 26%;
+    width: 30%;
     position: absolute;
     right: -10%;
     bottom: -10%;
     border-radius: 10px;
+    background-color: var(--main-bg);
     box-shadow:  var(--portfolio-shadow);
-    transform: translateZ(20px);
-    transition: .3s ease;
     & img {
         height: 100%;
         width: 100%;
         border-radius: 10px;
     }
-    ${DesctopScreen}:hover & {
-        transform: translateZ(40px);
+    &:nth-of-type(2n + 2) {
+        right: 0%;
     }
+    /* ${DesctopScreen}:hover & {
+        transform: translateZ(40px);
+    } */
 `
 
 export const DescrWrapper = styled.div`
@@ -188,10 +191,9 @@ export const LinksWrapper = styled.div`
     }
 `
 
-export const LinkItem = styled.a.attrs({
-    'target': '_blank'
-})`
+export const LinkItem = styled.a`
     ${flexCenter}
+    position: relative;
     color: var(--text-col);
     font-weight: 400;
     & svg {
@@ -201,11 +203,11 @@ export const LinkItem = styled.a.attrs({
         margin: 0 .5em;
         & path {
             fill: var(--text-col);
-            transition: .3s ease;
         }
     }
     &:hover svg path {
-        fill: var(--accent)
+        fill: var(--accent);
+        transition: .3s
     }
 
 `
