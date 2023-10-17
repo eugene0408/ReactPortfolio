@@ -16,8 +16,7 @@ import {
     Tags,
     LinksWrapper,
     LinkItem
-} from './PortfolioItem.styles'
-
+} from './PortfolioItem.styles' 
 
 const bigScreenAnimation = {
   hidden: {
@@ -27,8 +26,17 @@ const bigScreenAnimation = {
   visible: {
     opacity: 1,
     x: 0,
+    z: 1,
     transition: {
       type: "spring"
+    }
+  },
+  hover: {
+    z: 5,
+    rotateY: -10,
+    transition: {
+      rotateY: {duration: .4, type: "ease-in-out"},
+      z: { type: "ease-in-out"}
     }
   }
 }
@@ -41,11 +49,30 @@ const smallScreenAnimation = {
   visible: {
     opacity: 1,
     x: 0,
+    z: 20,
     transition: {
       delay: 0.1,
       type: "spring",
       opacity: {duration: 0.1},
       x: {duration: 0.3}
+    }
+  },
+  hover: {
+    z: 100,
+    rotateY: -10,
+    transition: {
+      rotateY: {duration: .4, type: "ease-in-out"},
+      z: {duration: .3, type: "ease-in-out"}
+    }
+  }
+}
+
+const tagsWrapperAnimation = {
+  hover: {
+    z: 45,
+    rotateY: -10,
+    transition: {
+      duration: .3
     }
   }
 }
@@ -122,13 +149,22 @@ export const PortfolioItem = ({
 }) => {
   return (
     <Wrapper>
-        <ScreensWrapper>
-          <ScreensContainer>
+        <ScreensWrapper
+          as={motion.div}
+          initial='hidden'
+          whileInView='visible'
+          whileHover='hover'
+        >
+          <ScreensContainer
+            as={motion.div}
+            style={{
+              perspective: '2000px',
+              transformStyle: 'preserve-3d'
+            }}
+          >
             <DesctopScreen
               as={motion.div}
               variants={bigScreenAnimation}
-              initial='hidden'
-              whileInView='visible'
             >
               <motion.img 
                 src={desktop} 
@@ -137,14 +173,15 @@ export const PortfolioItem = ({
             </DesctopScreen>
 
             <Tags
-              >
+              as={motion.div}
+              variants={tagsWrapperAnimation}
+              > 
                 { tags.map((tag, index) => (
                   <motion.div
                     key={tag + Math.floor((Math.random()*1000)+1) }
                     variants={tagAnimation}
                     initial='hidden'
-                    whileInView='visible'
-                    viewport={{once: true}}
+                    animate='visible'
                     whileHover='hover'
                     custom={index}    
                   >
@@ -157,8 +194,7 @@ export const PortfolioItem = ({
             <MobileScreen
                 as={motion.div}
                 variants={smallScreenAnimation}
-                initial='hidden'
-                whileInView='visible'
+
               >
                 <img 
                   src={mobile} 

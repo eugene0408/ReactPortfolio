@@ -4,6 +4,7 @@ import { Container, Row, Col } from 'react-grid-system'
 import { ThemeContext } from '../../App'
 
 import { ReactComponent as MailIcon } from '../../assets/icons/gmail.svg'
+import { ReactComponent as SendIcon } from '../../assets/icons/send-message.svg'
 import { ReactComponent as PhoneIcon } from '../../assets/icons/phone.svg'
 import { ReactComponent as LocationIcon } from '../../assets/icons/location.svg'
 import { ReactComponent as FacebookIcon } from '../../assets/icons/facebook.svg'
@@ -22,20 +23,13 @@ import {
  import {
   ContactContainer,
   ContactItem,
+  ContactText,
   ContactHeader,
+  ContactButton,
   IconWrapper,
   ColDot,
   SocialContainer,
-  SocialItem,
-  Form,
-  InputWrapper,
-  Input,
-  FormContainer,
-  Label,
-  TextWrapper,
-  TextArea,
-  SubmitButton,
-  ButtonWrapper
+  SocialItem
  } from './Contacts.styles'
 
 export const Contacts = forwardRef((props, ref) => {
@@ -56,8 +50,7 @@ export const Contacts = forwardRef((props, ref) => {
           Contacts & Social
           ------------------- */}
           <Col
-          xl={6} lg={6} md={12}
-          order={{lg: 1, md: 2, sm: 2, xs: 2}}
+          xl={12} 
           >
             <ContactContainer>
               <ContactHeader>
@@ -65,31 +58,23 @@ export const Contacts = forwardRef((props, ref) => {
               </ContactHeader>
               {/*---------- Mail --------------*/}
               <ContactItem theme={finalTheme}>
-                <IconWrapper>
-                  <MailIcon />
-                </IconWrapper>        
-                <span>
-                  zhenualemak@gmail.com
-                </span>   
+                <ContactText
+                  onClick={()=> {
+                    navigator.clipboard.writeText('zhenualemak@gmail.com')
+                  }}
+                >
+                  <IconWrapper>
+                    <MailIcon />
+                  </IconWrapper>        
+                  <span>
+                    zhenualemak@gmail.com
+                  </span>   
+                </ContactText>
+                <ContactButton>
+                  <SendIcon />
+                </ContactButton>
               </ContactItem>
-              {/*--------- Phone -------------*/}
-              <ContactItem theme={finalTheme}>
-                <IconWrapper>
-                  <PhoneIcon />
-                </IconWrapper> 
-                <span>
-                  +38<ColDot/>068<ColDot/>1908<ColDot/>994
-                </span>   
-              </ContactItem>
-              {/*--------- Location -------------*/}
-              <ContactItem theme={finalTheme}>
-                <IconWrapper>
-                  <LocationIcon />
-                </IconWrapper> 
-                <span>
-                  Ukraine, Zakarpatia
-                </span>   
-              </ContactItem>
+
 
               {/*----------------- Social -----------------*/}
               <SocialContainer>
@@ -120,50 +105,7 @@ export const Contacts = forwardRef((props, ref) => {
             </ContactContainer>
 
           </Col>
-          {/* ----------------------------
-          Contact Form
-          ---------------------------- */}
-          <Col
-            xl={6} lg={6} md={12}
-            order={{lg: 2, md: 1, sm: 1, xs: 1}}
-          >
-            <FormContainer>
-              <Form theme={finalTheme}
-                onSubmit={ (e) => { e.preventDefault() } }
-              >
-
-                <Label>Your Name</Label>
-                <InputWrapper>
-                  <AvaIcon />
-                  <Input type={'text'} />
-                </InputWrapper>
-
-                <Label>Your Mail</Label>
-                <InputWrapper>
-                  <AtIcon />
-                  <Input type={'mail'} />
-                </InputWrapper>
-
-                <Label>Message</Label>
-                <TextWrapper>
-                  <ChatIcon />
-                  <TextArea 
-                    rows={6} 
-                    style={{width: '100%'}}
-                  />
-                </TextWrapper>
-
-                <ButtonWrapper>
-                  <SubmitButton>
-                    Submit
-                  </SubmitButton>
-                </ButtonWrapper>
-       
-
-              </Form>
-            </FormContainer>
-          </Col>
-
+         
 
         </Row>
       </Container>

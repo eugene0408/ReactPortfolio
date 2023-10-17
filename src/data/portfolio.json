@@ -15,7 +15,7 @@
         "desktop": "images/portfolio/reduxShop.png",
         "mobile": "images/portfolio/reduxShop-mobile.png",
         "descr": "Online store, filter goods by categories, dark/light theme, responsive design",
-        "tags": ["react", "redux", "styled components"],
+        "tags": ["react", "redux"],
         "website": "https://shop-react-redux-bice.vercel.app/",
         "repo": "https://github.com/eugene0408/shop-react-redux"
     },
@@ -25,7 +25,7 @@
         "desktop": "images/portfolio/todoRedux.png",
         "mobile": "images/portfolio/todoRedux-mobile.png",
         "descr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor fermentum a odio adipiscing morbi nullam fusce. Dolor lectus vitae habitant etiam adipiscing ",
-        "tags": ["react", "redux", "styled components"],
+        "tags": ["react", "redux"],
         "website": "https://eugene0408.github.io/Todo-ReactRedux/",
         "repo": "https://github.com/eugene0408/Todo-ReactRedux"
     },
@@ -35,7 +35,7 @@
         "desktop": "images/portfolio/honeyShop.png",
         "mobile": "images/portfolio/honeyShop-mobile.png",
         "descr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor fermentum a odio adipiscing morbi nullam fusce. Dolor lectus vitae habitant etiam adipiscing ",
-        "tags": ["html", "sass", "jQuery", "bootstrap"],
+        "tags": ["html", "sass", "jQuery"],
         "website": "https://eugene0408.github.io/honey_shop/",
         "repo": "https://github.com/eugene0408/honey_shop"
     },
@@ -45,7 +45,7 @@
         "desktop": "images/portfolio/kompremont.png",
         "mobile": "images/portfolio/kompremont-mobile.png",
         "descr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor fermentum a odio adipiscing morbi nullam fusce. Dolor lectus vitae habitant etiam adipiscing ",
-        "tags": ["html", "sass", "jQuery", "bootstrap"],
+        "tags": ["html", "sass", "jQuery"],
         "website": "http://compremont.ml/",
         "repo": "https://github.com/eugene0408/Compremont"
     },
@@ -55,7 +55,7 @@
         "desktop": "images/portfolio/foodSpin.png",
         "mobile": "images/portfolio/foodSpin-mobile.png",
         "descr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor fermentum a odio adipiscing morbi nullam fusce. Dolor lectus vitae habitant etiam adipiscing ",
-        "tags": ["html", "sass", "js", "bootstrap"],
+        "tags": ["html", "sass", "js"],
         "website": "https://eugene0408.github.io/food-spin/",
         "repo": "https://github.com/eugene0408/food-spin"
     },
@@ -65,7 +65,7 @@
         "desktop": "images/portfolio/portfolio.png",
         "mobile": "images/portfolio/portfolio-mobile.png",
         "descr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor fermentum a odio adipiscing morbi nullam fusce. Dolor lectus vitae habitant etiam adipiscing ",
-        "tags": ["html", "sass", "js", "bootstrap"],
+        "tags": ["html", "sass", "js"],
         "website": " https://lemakeug.netlify.app",
         "repo": "https://github.com/eugene0408/My_Portfolio"
     }

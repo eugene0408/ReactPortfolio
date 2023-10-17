@@ -55,6 +55,7 @@ export const ScreensWrapper = styled.div`
     position: relative;
     width: 50%;
     height: 100%;
+    transform-style: preserve-3d;
     @media (max-width: 992px) {
         width: 100%;
         height: 30%;
@@ -96,14 +97,12 @@ export const DesctopScreen = styled.div`
     width: 100%;
     border-radius: 10px;
     box-shadow: var(--portfolio-shadow);
+    z-index: 1;
     & img {
         height: 100%;
         width: 100%;
         border-radius: 10px;
     }
-    /* &:hover {
-        transform: perspective(1000px) rotateY(10deg) translateZ(10px);
-    } */
 
 `
 export const Tags = styled.div`
@@ -112,11 +111,15 @@ export const Tags = styled.div`
     left: 0;
     padding-left: .5em;
     display: flex;
+    width: 100%;
     & div {
-        margin-right: 1em;
+        margin-right: .5em;
+        padding: .2em .8em;
+        border-radius: 0 0 10px 10px;
         cursor: pointer;
         display: flex;
         position: relative;
+        background: var(--glassBg);
     }
     @media (max-width: 576px) {
         display: none;
@@ -132,6 +135,7 @@ export const MobileScreen = styled.div`
     border-radius: 10px;
     background-color: var(--main-bg);
     box-shadow:  var(--portfolio-shadow);
+    z-index: 2;
     & img {
         height: 100%;
         width: 100%;
@@ -140,9 +144,6 @@ export const MobileScreen = styled.div`
     &:nth-of-type(2n + 2) {
         right: 0%;
     }
-    /* ${DesctopScreen}:hover & {
-        transform: translateZ(40px);
-    } */
 `
 
 export const DescrWrapper = styled.div`
