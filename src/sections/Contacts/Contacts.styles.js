@@ -20,7 +20,6 @@ export const ContactItem = styled.div`
     align-items: center;
     padding: 1em 5em 1em 0;
     font-size: 18px;
-    /* width: fit-content; */
     margin: .5em 0;
     &::before {
         content: '';
@@ -43,7 +42,7 @@ export const ContactItem = styled.div`
         font-size: 16px;
     }
     @media (max-width: 576px) {
-        padding: 1em;
+        font-size: 14px;
     }
 `
 export const ContactText = styled.div`
@@ -90,22 +89,35 @@ export const ContactHeader = styled.h3`
     }
 `
  
-export const ContactButton = styled.button`
+export const ContactButton = styled.a`
     position: absolute;
     right: 0;
     background: var(--accent);
     height: 100%;
-    width: 5em;
+    width: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid var(--accent);
     border-radius: 0 10px 10px 0;
     cursor: pointer;
     & svg {
-        --size: 22px;
+        --size: 20px;
         width: var(--size);
         height: var(--size);
     }
     & svg path {
         fill: #000;
+    }
+    &:hover svg {
+        transform: scale(1.2);
+        transition: all .3s ease;
+    }
+    @media (max-width: 576px) {
+        width: 4em;
+        & svg {
+            --size: 14px;
+        }
     }
 `
 
@@ -118,13 +130,6 @@ export const SocialContainer = styled.div`
     margin-top: 3rem;
     @media (max-width: 992px) {
         justify-content: center;
-    }
-`
-export const ColDot = styled.span`
-    &::before{
-        content: '•';
-        color: var(--light-red);
-        font-size: 1em;
     }
 `
 
@@ -144,7 +149,11 @@ export const SocialItem = styled.a.attrs({
     box-shadow: 5px 5px 10px rgba(0,0,0, .2);
     transition: all .3s ease;
     &:hover {
-        background-color: var(--accent)
+        background-color: var(--accent);
+    }
+    &:hover svg {
+        transform: scale(1.1);
+        transition: .2s ease-in-out;
     }
     & svg {
         height: calc(var(--size) / 1.8);

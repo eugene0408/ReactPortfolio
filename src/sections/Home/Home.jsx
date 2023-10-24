@@ -7,6 +7,7 @@ import { Container, Row, Col } from 'react-grid-system'
 
 // Images
 import {ReactComponent as DownloadIcon} from '../../assets/icons/document.svg'
+import {ReactComponent as AvatarBg} from '../../assets/images/morda-bg.svg'
 import ava from '../../assets/images/morda.png'
 import sun from '../../assets/images/sun.png'
 import moon from '../../assets/images/moon.png'
@@ -27,7 +28,6 @@ import {
   HeaderTitle,
   HeaderSkills,
   AvatarWrapper,
-  AvatarBg,
   ThemeImageWrapper,
   ScrollDownWrapper,
   ScrollLink,
@@ -235,12 +235,13 @@ export const Home = React.forwardRef(({
               whileInView="visible"
               whileHover="hover"
             >
-              <AvatarBgWrapper>
-                <AvatarBg 
-                  as={motion.div}
-                  variants={imageBgAnimation}
-                  custom={3}
-                />
+              <AvatarBgWrapper
+                as={motion.div}
+                variants={imageBgAnimation}
+                initial="hidden"
+                whileInView="visible"
+              >
+                <AvatarBg />
               </AvatarBgWrapper>
               <motion.img 
                 src={ava} 

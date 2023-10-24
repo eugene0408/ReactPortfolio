@@ -70,7 +70,9 @@ export const Contacts = forwardRef((props, ref) => {
                     zhenualemak@gmail.com
                   </span>   
                 </ContactText>
-                <ContactButton>
+                <ContactButton
+                  href='mailto:zhenualemak@gmail.com'
+                >
                   <SendIcon />
                 </ContactButton>
               </ContactItem>

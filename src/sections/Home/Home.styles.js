@@ -99,6 +99,7 @@ export const AvatarWrapper = styled.div`
         }      
     }
 `
+
 export const AvatarBgWrapper = styled.div`
     position: absolute;
     top: 0;
@@ -106,24 +107,24 @@ export const AvatarBgWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-`
-
-export const AvatarBg = styled.div`
-    --size: 300px;
-    border-radius: 50%;
-    height: var(--size);
-    width: var(--size);
-    background: #D9D9D9;
-    margin-top: 3em;
-    z-index: 1;
+    & svg {
+        height: 420px;
+    }
+    & svg path {
+        fill: var(--menu-bg)
+    }
     @media (max-width: 1200px) {
-        --size: 220px;
+        & svg {
+            height: 320px;
+        }
     }
     @media (max-width: 768px) {
-        --size: 160px;
+        & svg {
+            height: 235px;
+        }
     }
-`
 
+`
 
 export const ThemeImageWrapper = styled.div`
     --size: 150px;
