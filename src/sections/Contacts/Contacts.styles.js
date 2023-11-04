@@ -63,18 +63,31 @@ export const IconWrapper = styled.div`
     box-shadow: 5px 5px 10px rgba(0,0,0, .2);
     margin-left: 1em;
     margin-right: .8em;
-    background-color: #fff;
-    transition: all .3s ease;
+    background: #fff;
+    transition: background .3s ease-in-out;
     & svg {
         height: 60%;
         fill: #000;
     }
-    ${ContactItem}:hover & {
-        background-color: var(--accent);
+    @media (hover: hover) {
+        ${ContactText}:hover & {
+            background: var(--accent);
+        }
     }
     @media (max-width: 768px) {
         --size: 28px;
     }
+`
+
+export const CopiedAlert = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: -2em;
+    color: var(--text-col)
+
 `
 
 export const ContactHeader = styled.h3`
@@ -94,13 +107,19 @@ export const ContactButton = styled.a`
     right: 0;
     background: var(--accent);
     height: 100%;
-    width: 4em;
+    width: 3.5em;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid var(--accent);
     border-radius: 0 10px 10px 0;
     cursor: pointer;
+    & div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
     & svg {
         --size: 20px;
         width: var(--size);
@@ -147,14 +166,6 @@ export const SocialItem = styled.a.attrs({
     margin: 0 .5em;
     cursor: pointer;
     box-shadow: 5px 5px 10px rgba(0,0,0, .2);
-    transition: all .3s ease;
-    &:hover {
-        background-color: var(--accent);
-    }
-    &:hover svg {
-        transform: scale(1.1);
-        transition: .2s ease-in-out;
-    }
     & svg {
         height: calc(var(--size) / 1.8);
         width: calc(var(--size) / 1.8);

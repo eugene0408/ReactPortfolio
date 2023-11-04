@@ -1,6 +1,6 @@
 import React, {useContext}from 'react'
 import { ThemeContext } from '../../App'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 // Grid
 import { Container, Row, Col } from 'react-grid-system'
@@ -54,8 +54,13 @@ const sunMoonAnimation = {
     }
   },
   exit: {
-    x: [50, 100, 150, 200, 250],
-    y: [10, 20, 40, 75, 100],
+    x: [0, 100, 150, 200, 220, 250],
+    y: [0, 20, 50, 80, 100],
+    transition: {
+      duaration: 0.5,
+      type: "tween",
+      ease: "easeInOut"
+    }
   }
 
 }
