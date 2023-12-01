@@ -43,6 +43,8 @@ export const ContactItem = styled.div`
     }
     @media (max-width: 576px) {
         font-size: 14px;
+        padding: 0.9em 4.5em 0.9em 0;
+        margin: 1em 0 2em 0;
     }
 `
 export const ContactText = styled.div`
@@ -77,6 +79,9 @@ export const IconWrapper = styled.div`
     @media (max-width: 768px) {
         --size: 28px;
     }
+    @media (max-width: 576pxpx) {
+        --size: 22px;
+    }
 `
 
 export const CopiedAlert = styled.div`
@@ -86,7 +91,7 @@ export const CopiedAlert = styled.div`
     width: 100%;
     position: absolute;
     top: -2em;
-    color: var(--text-col)
+    color: var(--text-col);
 
 `
 
@@ -98,7 +103,7 @@ export const ContactHeader = styled.h3`
         font-size: 32px;
     }
     @media (max-width: 576px) {
-        font-size: 28px;
+        font-size: 25px;
     }
 `
  
@@ -133,9 +138,9 @@ export const ContactButton = styled.a`
         transition: all .3s ease;
     }
     @media (max-width: 576px) {
-        width: 4em;
+        width: 3.5em;
         & svg {
-            --size: 14px;
+            --size: 12px;
         }
     }
 `
@@ -147,9 +152,6 @@ export const SocialContainer = styled.div`
     align-items: center;
     width: 100%;
     margin-top: 3rem;
-    @media (max-width: 992px) {
-        justify-content: center;
-    }
 `
 
 export const SocialItem = styled.a.attrs({

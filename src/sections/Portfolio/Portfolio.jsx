@@ -39,9 +39,10 @@ export const Portfolio = forwardRef((
   const [touchEnd, 
     setTouchEnd] = useState(null)
 
+  const portfolioItems = portfolioData
 
-  const filterPortfolio = () => (
-      portfolioData.filter((item) => (item.category === portfolioCategory))
+  const filterByCategory = () => (
+      portfolioItems.filter((item) => (item.category === portfolioCategory))
     );
 
 
@@ -51,28 +52,25 @@ export const Portfolio = forwardRef((
   const itemsPerScreen = () => screenIsSmall ? 1 : 2;
   const indexOfLastItem = curPortfolioPage * itemsPerScreen();
   const indexOfFirstItem = indexOfLastItem - itemsPerScreen();
-  const itemsToDisplay = filterPortfolio().slice(indexOfFirstItem, indexOfLastItem);
-  const totalItems = filterPortfolio().length
+  const itemsToDisplay = filterByCategory().slice(indexOfFirstItem, indexOfLastItem);
+  const totalItems = filterByCategory().length
   // Array of numbers from 1 to screens amount
   const totalScreens = Array.from({length: Math.ceil(totalItems/itemsPerScreen())}, (_, i) => i + 1);
 
     
-  // Reset current page when category changed
-  const resetCurScreen = () => { 
+  // Start from last page if scrolled back
+  const startFromLastScreen = () => { 
     if(categoryScrolledBack){
-      // Start from last page if scrolled back
       setCurPortfolioPage(totalScreens.length);
       setCategoryScrolledBack(false)
-    }else{
-      // Start from first page if scrolled forward
-      setCurPortfolioPage(1)
     }
   }
 
-  useEffect(() => {
-    filterPortfolio();
-    resetCurScreen();
-  }, [portfolioCategory]);
+  useEffect(()=> {
+    startFromLastScreen()
+  }, [portfolioCategory])
+
+
 
 
   const onHoverHandler = () => {
@@ -100,19 +98,39 @@ export const Portfolio = forwardRef((
   const isLastCategory = portfolioCategory === categoriesList[categoriesList.length - 1];
   const isFirstCategory = portfolioCategory === categoriesList[0]
 
-  // Switch portfolio pages
+  // Scroll to another section 
+  const scrollToNextSection = (section) => {
+    setTimeout(() => {
+      setHovered(false)
+      scrollToSection(section)
+    }, 300)
+  }
+  // Switch between portfolio categories
+  const switchToNextCategory = () => {
+    setTimeout(() => {
+      setPortfolioCategory(categoriesList[curCategoryIndex + 1]);
+      setCurPortfolioPage(1) //start from first page
+    }, 100)
+  }
+
+  const switchToPrevCategory = () => {
+    setTimeout(() => {
+      setPortfolioCategory(categoriesList[curCategoryIndex - 1]);
+      setCategoryScrolledBack(true)
+    }, 100)
+  }
+
+  // Switch pages handler
   const nextPage = () => {
     switch(true) {
       case curPortfolioPage < numberOfScreens:
         setCurPortfolioPage(curPortfolioPage + 1)
         break;
       case curPortfolioPage === numberOfScreens && !isLastCategory:  //switch to next category if scrolled to an end
-        setPortfolioCategory(categoriesList[curCategoryIndex + 1])
-        setCurPortfolioPage(numberOfScreens)
+        switchToNextCategory() 
         break;
       default:
-        setHovered(false);
-        scrollToSection('s-contacts')   // go to next section if scrolled to last item
+        scrollToNextSection('s-contacts')   // go to next section if scrolled to last item
     }
   };
 
@@ -122,16 +140,14 @@ export const Portfolio = forwardRef((
         setCurPortfolioPage(curPortfolioPage - 1);
         break;
       case curPortfolioPage === 1 && !isFirstCategory:   //switch to prewious category if scrolled to an end
-        setPortfolioCategory(categoriesList[curCategoryIndex - 1])
-        setCategoryScrolledBack(true)
+        switchToPrevCategory()
         break;
       default:
-        setHovered(false)
-        scrollToSection('s-skills')  // go to prew section if scrolled to last item
+        scrollToNextSection('s-skills')  // go to prew section if scrolled to last item
     }
   };
 
-  // Switch portfolio pages by mouse wheel
+  // Switch pages by mouse wheel
   const onWheelHandler = (e) => {
 
     const isScrollingUp = e.deltaY < 0;
@@ -142,11 +158,11 @@ export const Portfolio = forwardRef((
       if(isScrollingUp && !isTouchDevice()) prevPage();
     }
 
-    setTimeout(scrollPages(), 100)
+    setTimeout(scrollPages(), 300)
 
   }
 
-  // Switch portfolio page on touchscreen
+  // Switch pages on touchscreen
 
   // the required distance between touchStart and touchEnd to be detected as a swipe
   const minSwipeDistance = 50 

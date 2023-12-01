@@ -29,10 +29,10 @@ export const PageHeader = styled.h2`
 `
 
 export const SnapScrollContainer = styled.div`
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y mandatory; 
   max-height: 100vh;
   overflow-x: hidden;
-  overflow-y: ${props => props.portfolioHovered && props.currentSection === 's-portfolio' ? 'hidden' : 'scroll'};
+  overflow-y: ${props => props.portfolioHovered && props.currentSection === 's-portfolio' ? 'hidden' : 'scroll'}; 
   scrollbar-width: none;
   scroll-behavior: smooth;
   &::-webkit-scrollbar {

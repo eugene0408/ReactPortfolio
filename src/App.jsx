@@ -44,25 +44,35 @@ function App() {
 
   const scrollContainerRef = useRef(null)
   const sectionsRefs = useRef([])
-  sectionsRefs.current = []
+  // sectionsRefs.current = []
 
   const addToRefs = (el) => {
     if(el && !sectionsRefs.current.includes(el)){
       sectionsRefs.current.push(el)
+      console.log(`refs created`)
     }
   }
 
 // Active section highlight
-  const activeSectionCheck = (e) => {
+  const activeSectionCheck = () => {
 
       sectionsRefs.current.forEach( section => {
       const sectionTop = section.offsetTop - 50;
       const sectionHeight = section.offsetHeight;
       const sectionBottom = sectionTop + sectionHeight;
+
   
-      if(e.currentTarget.scrollTop >= sectionTop && e.currentTarget.scrollTop < sectionBottom) {
+      // if( e.currentTarget.scrollTop >= sectionTop && e.currentTarget.scrollTop < sectionBottom ) {
+      //   if(currentSection !== section.id){
+      //     setCurrentSection(section.id);
+      //     console.log(`cur: ${section.id} , top: ${sectionTop}, bot: ${sectionBottom}`)
+      //   }} 
+      // }) 
+
+      if( scrollContainerRef.current.scrollTop >= sectionTop && scrollContainerRef.current.scrollTop < sectionBottom ) {
         if(currentSection !== section.id){
           setCurrentSection(section.id);
+          console.log(`cur: ${section.id} , top: ${sectionTop}, bot: ${sectionBottom}, hovered: ${portfolioHovered}`)
         }} 
       }) 
     
@@ -77,8 +87,10 @@ function App() {
       if(section) {
         const sectionTop = section.offsetTop
         container.scrollTop = sectionTop
+        // setCurrentSection(section.id)
       }
   }
+
 
 
     return (
@@ -106,8 +118,8 @@ function App() {
               ref={scrollContainerRef}
               currentSection={currentSection}
               portfolioHovered = {portfolioHovered}
-              onScroll = {(e) => activeSectionCheck(e)}
-              onTouchEnd = {(e) => activeSectionCheck(e)}
+              onScroll = {() => activeSectionCheck()}
+              onTouchEnd = {() => activeSectionCheck()}
             >
               <Home 
                 ref={addToRefs}

@@ -165,7 +165,7 @@ export const Contacts = forwardRef((props, ref) => {
           Contacts & Social
           ------------------- */}
           <Col
-          xl={12} 
+          xl={12} lg={12} md={12} xs={11} offset={{xs: 1, sm: 0}}
           >
             <ContactContainer
               as={motion.div}
