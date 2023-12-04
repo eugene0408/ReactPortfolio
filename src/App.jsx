@@ -61,14 +61,6 @@ function App() {
       const sectionHeight = section.offsetHeight;
       const sectionBottom = sectionTop + sectionHeight;
 
-  
-      // if( e.currentTarget.scrollTop >= sectionTop && e.currentTarget.scrollTop < sectionBottom ) {
-      //   if(currentSection !== section.id){
-      //     setCurrentSection(section.id);
-      //     console.log(`cur: ${section.id} , top: ${sectionTop}, bot: ${sectionBottom}`)
-      //   }} 
-      // }) 
-
       if( scrollContainerRef.current.scrollTop >= sectionTop && scrollContainerRef.current.scrollTop < sectionBottom ) {
         if(currentSection !== section.id){
           setCurrentSection(section.id);
@@ -87,7 +79,6 @@ function App() {
       if(section) {
         const sectionTop = section.offsetTop
         container.scrollTop = sectionTop
-        // setCurrentSection(section.id)
       }
   }
 

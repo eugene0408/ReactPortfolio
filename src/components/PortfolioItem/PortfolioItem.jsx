@@ -18,7 +18,7 @@ import {
     LinkItem
 } from './PortfolioItem.styles' 
 
-const bigScreenAnimation = {
+ const bigScreenAnimation = {
   hidden: {
     opacity: 0,
     x: -150

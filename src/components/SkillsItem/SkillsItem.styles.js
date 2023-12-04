@@ -1,5 +1,5 @@
-import styled, {keyframes} from "styled-components";
-import {motion} from 'framer-motion'
+import styled from "styled-components";
+
 
 const flexCenter = `
     display: flex;
@@ -33,7 +33,7 @@ export const Wrapper = styled.div`
         height: 120%;
         width: 90%;
         border-radius: 10px;
-        background: var(--glassBg);
+        background-color: var(--glassBg);
         border: 1px solid var(--glassBorder);
         backdrop-filter: blur(4px);
         z-index: 1;
@@ -84,7 +84,7 @@ export const LineWrapper = styled.div`
     position: relative;
     height: 7px;
     width: 50%;
-    background: var(--menu-bg);
+    background-color: var(--menu-bg);
     border-radius: 10px;
     z-index: 2;
     overflow: hidden;
@@ -101,6 +101,6 @@ export const HoverLine = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    background: ${props => levelColor(props.level)};
+    background-color: ${props => levelColor(props.level)};
     height: 100%;
 `

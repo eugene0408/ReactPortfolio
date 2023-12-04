@@ -28,7 +28,7 @@ const lineAnimation = {
     }
   }),
   hover: {
-    background: 'var(--skillLevelBg)' // hide to animate another line
+    backgroundColor: 'var(--skillLevelBg)' // hide to animate another line
   }
 
 }

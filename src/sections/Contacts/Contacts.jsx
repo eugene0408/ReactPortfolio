@@ -108,7 +108,7 @@ import {
     }
   }),
   hover: {
-    background: 'var(--accent)',
+    backgroundColor: 'var(--accent)',
     transition: {
       duration: 0.3
     }
