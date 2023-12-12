@@ -1,6 +1,5 @@
 import React, {forwardRef} from 'react'
 import { Container, Col } from 'react-grid-system'
-import {motion} from 'framer-motion'
 
 import skillsData from '../../data/skills.json'
 
@@ -34,7 +33,7 @@ const skillCardsAnimation = {
   hidden: {
     opacity: 0,
     scale: 0,
-    x: 150
+    x: 50
   },
   visible: custom => ({
     opacity: 1,

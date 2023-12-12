@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import useLocalStorage from "react-use-localstorage";
 import { setConfiguration } from 'react-grid-system';
 
@@ -103,6 +103,8 @@ function App() {
           <Topline />
           <SideMenu
             scrollToSection = {scrollToSection}
+            portfolioHovered = {portfolioHovered}
+            setPortfolioHovered = {setPortfolioHovered}
           />
           <AnimatePresence>
             <SnapScrollContainer 

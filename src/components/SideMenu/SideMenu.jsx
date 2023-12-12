@@ -16,14 +16,23 @@ import {
   ArrowLinkNext
 } from './SideMenu.styles'
 
-export const SideMenu = ({scrollToSection}) => {
+export const SideMenu = ({
+  scrollToSection,
+  portfolioHovered,
+  setPortfolioHovered
+}) => {
   const {active} = useContext(SectionContext)
+
+  const switchToSection = (section) => {
+    setPortfolioHovered(false)
+    setTimeout(scrollToSection(section), 100)
+  }
 
   const NavMenuLink = (props) => (
     <MenuLink
       to={props.to}
       active={active}
-      onClick={() => scrollToSection(props.to)}
+      onClick={() => switchToSection(props.to)}
     >
       {props.children}
     </MenuLink>
@@ -59,7 +68,7 @@ export const SideMenu = ({scrollToSection}) => {
       <ArrowLinkPrev
         prevSection={prevSection}
         active={active}
-        onClick={ () => scrollToSection(prevSection)}
+        onClick={ () => switchToSection(prevSection)}
       >
         <UpArrow />
         {sectionNameFromId(prevSection)}
@@ -87,7 +96,7 @@ export const SideMenu = ({scrollToSection}) => {
       <ArrowLinkNext
         nextSection={nextSection}
         active={active}
-        onClick={ () => scrollToSection(nextSection)}
+        onClick={ () => switchToSection(nextSection)}
       >
         {sectionNameFromId(nextSection)}
         <DownArrow />
