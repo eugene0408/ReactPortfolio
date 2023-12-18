@@ -22,33 +22,33 @@ const levelColor = (level) => {
 export const Wrapper = styled.div`
     ${flexCenter}
     flex-direction: column;
-    margin-top: 2.5rem;
+    margin-top: 3.5rem;
     position: relative;
     cursor: pointer;
     &::before {
         content: '';
         position: absolute;
-        top: -10%;
-        left: 5%;
-        height: 120%;
-        width: 90%;
+        top: -15%;
+        left: 0;
+        height: 130%;
+        width: 100%;
         border-radius: 10px;
         background-color: var(--glassBg);
         border: 1px solid var(--glassBorder);
         backdrop-filter: blur(4px);
         z-index: 1;
     }
-    @media (max-width: 576px){
+    /* @media (max-width: 576px){
         &::before{
             width: 90%;
             height: 130%;
         }
-    }
+    } */
 
 `
 export const IconWrapper = styled.div`
     ${flexCenter}
-    --icon-size: 45px;
+    --icon-size: 40px;
     width: 100%;
     z-index: 2;
     & svg {
@@ -71,7 +71,7 @@ export const IconWrapper = styled.div`
 export const Title = styled.h3`
     text-transform: uppercase;
     color: var(--text-col);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     z-index: 2;
     @media (max-width: 576px) {

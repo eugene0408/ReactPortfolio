@@ -37,15 +37,27 @@ const lineAnimation = {
 const lineHoverAnimation = {
   hidden: {
     width: 0,
+    opacity: 0,
   },
   visible: {
     width: 0, // hide when is not hovered
+    opacity: 0,
+    transition: {
+      width: {duration: 0.9},
+      opacity: {duration: 0.01}
+    }
   },
   hover: custom => ({
     width: `${custom}%`, //onhover animation
+    opacity: 1,
     transition: {
-      duration: 0.8,
-      type: "spring"
+      opacity: {
+        duration: 0.1
+      },
+      width: {
+        duration: 1.1,
+        type: "spring"
+      }
     }
   })
 }

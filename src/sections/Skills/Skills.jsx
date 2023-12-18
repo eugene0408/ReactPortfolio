@@ -16,16 +16,18 @@ import {
 
 
 const colProps = {
-  xl: 1.5,
-  lg: 2,
-  md: 2.8,
-  sm: 4,
+  xxl: 1.2,
+  xl: 1.5, 
+  lg: 1.8, //2
+  md: 2.5,
+  sm: 3.5,
   xs: 3.4,
   offset: {
-    xl: 0.5,
+    xl: 0.2, //0.5
     lg: 0.2,
     md: 0,
-    sm: 0
+    sm: 0.4,
+    xs: 0
   }
 }
 

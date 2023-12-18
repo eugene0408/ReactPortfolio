@@ -8,6 +8,7 @@ export const PageWrapper = styled.section`
     display: inline-block;
     z-index: 2;
     scroll-snap-align: start;
+    overflow: hidden; //fix snapscroll glitching
 `
 export const PageHeader = styled.h2`
   font-size: 36px;
@@ -35,6 +36,7 @@ export const SnapScrollContainer = styled.div`
   overflow-y: ${props => props.portfolioHovered && props.currentSection === 's-portfolio' ? 'hidden' : 'scroll'}; 
   scrollbar-width: none;
   scroll-behavior: smooth;
+  scroll-padding: 0;
   &::-webkit-scrollbar {
     display: none;
     width: 0;

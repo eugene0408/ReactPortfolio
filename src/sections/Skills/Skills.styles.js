@@ -18,7 +18,7 @@ export const RowHeader = styled.h4`
     width: 100%;
     text-align: left;
     position: absolute;
-    top: 10%;
+    top: 20%;
     left: 0;
     transition: .4s ease;
     @media (hover: hover){
