@@ -106,7 +106,16 @@
 
   --main-font: 'PoppinsWeb', 'Poppins', sans-serif;
   --bg-font: 'CascadiaCoveWeb', 'CascadiaCove', sans-serif;
+
+  --skill-animate-x: 150;
 }
+
+@media (max-width: 576px) {
+  body {
+    --skill-animate-x: 50;
+  }
+}
+
 
 [data-theme='light']{
   --main-bg:#fff;
