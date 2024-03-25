@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import useLocalStorage from "react-use-localstorage";
 import { setConfiguration } from 'react-grid-system';
 
@@ -36,11 +36,43 @@ function App() {
 
   const [currentSection,
     setCurrentSection] = useState('s-home')
+
+
+  const [portfolioData, setPortfolioData] = useState([])
+  const [skillsData, setSkillsData] = useState({})
+
   // Portfolio scroll pages
   const [curPortfolioPage,
     setCurPortfolioPage] = useState(1);
   const [portfolioHovered,
     setPortfolioHovered] = useState(false)
+
+  const getData = () => {
+    fetch('data/portfolio.json', {headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }}).then((response) => {
+      return response.json()
+    }).then((portfolioJson) => {
+      setPortfolioData(portfolioJson)
+    }) 
+
+    fetch('data/skills.json', {headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }}).then((response) => {
+      return response.json()
+    }).then((skillsJson) => {
+      setSkillsData(skillsJson)
+    }) 
+  }
+
+
+  useEffect(() => {
+    getData()
+  }, [])
+
+
 
   const scrollContainerRef = useRef(null)
   const sectionsRefs = useRef([])
@@ -49,7 +81,6 @@ function App() {
   const addToRefs = (el) => {
     if(el && !sectionsRefs.current.includes(el)){
       sectionsRefs.current.push(el)
-      console.log(`refs created`)
     }
   }
 
@@ -64,7 +95,6 @@ function App() {
       if( scrollContainerRef.current.scrollTop >= sectionTop && scrollContainerRef.current.scrollTop < sectionBottom ) {
         if(currentSection !== section.id){
           setCurrentSection(section.id);
-          console.log(`cur: ${section.id} , top: ${sectionTop}, bot: ${sectionBottom}, hovered: ${portfolioHovered}`)
         }} 
       }) 
     
@@ -118,17 +148,25 @@ function App() {
                 ref={addToRefs}
                 scrollToSection = {scrollToSection}
               />
-              <Skills
-                ref={addToRefs}
-              />
-              <Portfolio
-                ref={addToRefs}
-                curScreen={curPortfolioPage}
-                setCurScreen={setCurPortfolioPage}
-                hovered={portfolioHovered}
-                setHovered={setPortfolioHovered}
-                scrollToSection = {scrollToSection}
-              />
+              {
+                skillsData &&  Object.keys(skillsData).length > 0 &&
+                <Skills
+                  ref={addToRefs}
+                  skillsData={skillsData}
+                />             
+              }
+              {
+                portfolioData && portfolioData.length > 0 &&
+                <Portfolio
+                  ref={addToRefs}
+                  curScreen={curPortfolioPage}
+                  setCurScreen={setCurPortfolioPage}
+                  hovered={portfolioHovered}
+                  setHovered={setPortfolioHovered}
+                  scrollToSection = {scrollToSection}
+                  portfolioData = {portfolioData}
+                />
+              }
               <Contacts 
                 ref={addToRefs}
               />

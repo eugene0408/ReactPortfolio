@@ -38,15 +38,9 @@ export const Wrapper = styled.div`
         backdrop-filter: blur(4px);
         z-index: 1;
     }
-    /* @media (max-width: 576px){
-        &::before{
-            width: 90%;
-            height: 130%;
-        }
-    } */
-
-
 `
+
+
 export const IconWrapper = styled.div`
     ${flexCenter}
     --icon-size: 40px;

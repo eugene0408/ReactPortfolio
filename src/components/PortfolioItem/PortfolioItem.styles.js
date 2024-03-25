@@ -192,7 +192,9 @@ export const LinksWrapper = styled.div`
     }
 `
 
-export const LinkItem = styled.a`
+export const LinkItem = styled.a.attrs({
+    "target": "_blank"
+})`
     ${flexCenter}
     position: relative;
     color: var(--text-col);

@@ -1,7 +1,7 @@
 import React, {useState, useEffect, forwardRef} from 'react'
 import { Container, Row } from 'react-grid-system'
 
-import portfolioData from '../../data/portfolio.json'
+// import portfolioData from '../../data/portfolio.json'
 
 import { 
   PortfolioCategorySelect,
@@ -17,14 +17,14 @@ import {
 import { PortfolioWrapper } from './Portfolio.styles'
 
 
-
-
 export const Portfolio = forwardRef((
   { hovered,
     setHovered,
-    scrollToSection
+    scrollToSection,
+    portfolioData
   }, ref) => {
-// Category filter
+  
+  // Category filter
   const categoriesList = ['react', 'js']
 
   const [portfolioCategory, 
@@ -39,12 +39,12 @@ export const Portfolio = forwardRef((
   const [touchEnd, 
     setTouchEnd] = useState(null)
 
-  const portfolioItems = portfolioData
-
-  const filterByCategory = () => (
-      portfolioItems.filter((item) => (item.category === portfolioCategory))
-    );
-
+ 
+ 
+  const filterByCategory = () => {
+     const filtered = portfolioData.filter((item) => (item.category === portfolioCategory))
+     return filtered
+  };
 
   /**  Pagination
    ----------------------------------------------*/
@@ -52,6 +52,7 @@ export const Portfolio = forwardRef((
   const itemsPerScreen = () => screenIsSmall ? 1 : 2;
   const indexOfLastItem = curPortfolioPage * itemsPerScreen();
   const indexOfFirstItem = indexOfLastItem - itemsPerScreen();
+  
   const itemsToDisplay = filterByCategory().slice(indexOfFirstItem, indexOfLastItem);
   const totalItems = filterByCategory().length
   // Array of numbers from 1 to screens amount
@@ -66,11 +67,65 @@ export const Portfolio = forwardRef((
     }
   }
 
+
+  // const imagesList = () => {
+  //   const list = [];
+  //   filterByCategory().forEach((item) => {
+  //     list.push(item.desktop);
+  //     list.push(item.mobile)
+  //   })
+  //   console.log(list)
+  //   return list
+  // }
+
+  // const preloadImages = () => {
+  //   const list = imagesList();
+  //   list.forEach((image) => {
+  //     new Image().src = image
+  //   })
+  // }
+
   useEffect(()=> {
-    startFromLastScreen()
+    // preloadImages();
+    startFromLastScreen();
   }, [portfolioCategory])
 
 
+  // const [loadedItems, setLoadedItems] = useState([])
+
+  // useEffect(() => {
+
+  //   const loadedSlides = [];
+
+  //   const preloadItems = async () => {
+  //     for (const item of itemsToDisplay) {
+  //       const imgDesktop = new Image;
+  //       imgDesktop.src = item.desktop;
+  //       await new Promise(resolve => (imgDesktop.onload = resolve));
+
+  //       const imgMobile = new Image;
+  //       imgMobile.src = item.mobile;
+  //       await new Promise(resolve => (imgMobile.onload = resolve));
+
+  //       loadedSlides.push({
+  //         title: item.title,
+  //         category: item.category,
+  //         desktop: imgDesktop.src,
+  //         mobile: imgMobile.src,
+  //         descr: item.descr,
+  //         tags: item.tags,
+  //         website: item.website,
+  //         repo: item.repo
+  //       });
+
+  //       setLoadedItems(loadedSlides)
+
+  //     }
+  //   };
+
+  //   preloadItems();
+
+  // }, [itemsToDisplay])
 
 
   const onHoverHandler = () => {
@@ -187,7 +242,6 @@ export const Portfolio = forwardRef((
   }
   
 
-
   return (
     <PageWrapper
       id="s-portfolio"
@@ -224,6 +278,7 @@ export const Portfolio = forwardRef((
                   repo={item.repo}
                 />
               ))
+              
             }
             
             {/* Pagination */}

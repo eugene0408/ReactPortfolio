@@ -168,7 +168,7 @@ export const PortfolioItem = ({
             >
               <motion.img 
                 src={desktop} 
-                alt={`${title}-img`} 
+                alt={`${title}`} 
               />
             </DesctopScreen>
 
@@ -198,7 +198,7 @@ export const PortfolioItem = ({
               >
                 <img 
                   src={mobile} 
-                  alt={`${title}-small-img`} 
+                  alt={`${title}-mobile`} 
                 />
             </MobileScreen>
           </ScreensContainer>

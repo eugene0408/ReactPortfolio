@@ -83,11 +83,12 @@
   font-display: swap;
 }
 
+/* --main-bg:#15141B; */
 
 :root{
   --accent:#FFC831;
-  --main-bg:#15141B;
-  --menu-bg:#222430;
+  --main-bg: #15141B;
+  --menu-bg: linear-gradient(109deg, rgba(34,36,48,1) 40%, rgba(21,20,27,0.8) 60%, rgba(21,20,27,1) 98%);
   --light-red:#FB627D;
   --theme-accent:#FFC831;
   --text-col:#fff;
@@ -149,7 +150,7 @@ a {
 }
 
 .App{
-  background-color: var(--main-bg);
+  background: var(--main-bg);
   overflow: hidden;
 }
 .App::-webkit-scrollbar{
