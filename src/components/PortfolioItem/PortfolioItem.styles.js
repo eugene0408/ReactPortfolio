@@ -133,7 +133,6 @@ export const MobileScreen = styled.div`
     right: -10%;
     bottom: -10%;
     border-radius: 10px;
-    background-color: var(--main-bg);
     box-shadow:  var(--portfolio-shadow);
     z-index: 2;
     & img {

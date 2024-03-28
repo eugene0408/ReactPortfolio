@@ -1,8 +1,6 @@
 import React, {useState, useEffect, forwardRef} from 'react'
 import { Container, Row } from 'react-grid-system'
 
-// import portfolioData from '../../data/portfolio.json'
-
 import { 
   PortfolioCategorySelect,
   PortfolioItem,
@@ -24,13 +22,15 @@ export const Portfolio = forwardRef((
     portfolioData
   }, ref) => {
   
-  // Category filter
+  // Categories for filter
   const categoriesList = ['react', 'js']
-
+  // Current category
   const [portfolioCategory, 
     setPortfolioCategory] = useState(categoriesList[0]);
+  // Current page
   const [curPortfolioPage,
     setCurPortfolioPage] = useState(1);
+  // Scroll direction when category changed
   const [categoryScrolledBack,
     setCategoryScrolledBack] = useState(false);
   // Touch states
@@ -38,13 +38,31 @@ export const Portfolio = forwardRef((
     setTouchStart] = useState(null)
   const [touchEnd, 
     setTouchEnd] = useState(null)
+  // Preloaded slides
+  const [loadedSlides, setLoadedSlides] = useState([])
+
+  useEffect (() => {
+    // Get data array and return it with loaded images
+    const loadedSlides = portfolioData.map((slide) => {
+      // Preload images 
+      const desktopImage = new Image();
+      desktopImage.src = slide.desktop;
+      const mobileImage = new Image();
+      mobileImage.src = slide.mobile;
+      // Replase src with loaded images
+      return {...slide, desktop: desktopImage, mobile: mobileImage}     
+    });
+
+    setLoadedSlides(loadedSlides) 
+  }, [])
 
  
  
   const filterByCategory = () => {
-     const filtered = portfolioData.filter((item) => (item.category === portfolioCategory))
+     const filtered = loadedSlides.filter((item) => (item.category === portfolioCategory))
      return filtered
   };
+
 
   /**  Pagination
    ----------------------------------------------*/
@@ -68,64 +86,9 @@ export const Portfolio = forwardRef((
   }
 
 
-  // const imagesList = () => {
-  //   const list = [];
-  //   filterByCategory().forEach((item) => {
-  //     list.push(item.desktop);
-  //     list.push(item.mobile)
-  //   })
-  //   console.log(list)
-  //   return list
-  // }
-
-  // const preloadImages = () => {
-  //   const list = imagesList();
-  //   list.forEach((image) => {
-  //     new Image().src = image
-  //   })
-  // }
-
   useEffect(()=> {
-    // preloadImages();
     startFromLastScreen();
   }, [portfolioCategory])
-
-
-  // const [loadedItems, setLoadedItems] = useState([])
-
-  // useEffect(() => {
-
-  //   const loadedSlides = [];
-
-  //   const preloadItems = async () => {
-  //     for (const item of itemsToDisplay) {
-  //       const imgDesktop = new Image;
-  //       imgDesktop.src = item.desktop;
-  //       await new Promise(resolve => (imgDesktop.onload = resolve));
-
-  //       const imgMobile = new Image;
-  //       imgMobile.src = item.mobile;
-  //       await new Promise(resolve => (imgMobile.onload = resolve));
-
-  //       loadedSlides.push({
-  //         title: item.title,
-  //         category: item.category,
-  //         desktop: imgDesktop.src,
-  //         mobile: imgMobile.src,
-  //         descr: item.descr,
-  //         tags: item.tags,
-  //         website: item.website,
-  //         repo: item.repo
-  //       });
-
-  //       setLoadedItems(loadedSlides)
-
-  //     }
-  //   };
-
-  //   preloadItems();
-
-  // }, [itemsToDisplay])
 
 
   const onHoverHandler = () => {
@@ -145,6 +108,8 @@ export const Portfolio = forwardRef((
       return false
     }
   }
+
+
 
   //** ------       Portfolio Navigation          ----------------------*/
 
@@ -240,13 +205,14 @@ export const Portfolio = forwardRef((
     if(isDownSwipe) prevPage();
 
   }
-  
+
 
   return (
     <PageWrapper
       id="s-portfolio"
       ref={ref}
     >
+      {/* <ImagePreloader imageUrls={imageUrls()}/> */}
       <PageHeader> My works </PageHeader>
 
       <Container>
@@ -270,8 +236,8 @@ export const Portfolio = forwardRef((
                 <PortfolioItem 
                   key={item.title}
                   title={item.title}
-                  desktop={item.desktop}
-                  mobile={item.mobile}
+                  desktop={item.desktop.src}
+                  mobile={item.mobile.src}
                   descr={item.descr}
                   tags={item.tags}
                   website={item.website}

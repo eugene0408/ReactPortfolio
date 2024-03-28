@@ -55,6 +55,7 @@ function App() {
       return response.json()
     }).then((portfolioJson) => {
       setPortfolioData(portfolioJson)
+      // console.log('portfolio data loaded')
     }) 
 
     fetch('data/skills.json', {headers: {
@@ -64,6 +65,7 @@ function App() {
       return response.json()
     }).then((skillsJson) => {
       setSkillsData(skillsJson)
+      // console.log('skills data loaded')
     }) 
   }
 

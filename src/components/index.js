@@ -4,6 +4,7 @@ import { MSkillsItem } from "./SkillsItem/SkillsItem";
 import { PortfolioCategorySelect } from "./PortfolioItem/PortfolioCategorySelect";
 import { PortfolioItem } from "./PortfolioItem/PortfolioItem";
 import { PortfolioPagination } from "./PortfolioPagination/PortfolioPagination";
+import { Loading } from "./Loading/Loading";
 
 import { 
     AccentButton,
@@ -18,6 +19,7 @@ export {
     PortfolioCategorySelect,
     PortfolioItem,
     PortfolioPagination,
+    Loading,
     AccentButton,
     CVButton,
     CVIcon

@@ -166,7 +166,7 @@ export const PortfolioItem = ({
               as={motion.div}
               variants={bigScreenAnimation}
             >
-              <motion.img 
+              <img 
                 src={desktop} 
                 alt={`${title}`} 
               />
@@ -194,7 +194,6 @@ export const PortfolioItem = ({
             <MobileScreen
                 as={motion.div}
                 variants={smallScreenAnimation}
-
               >
                 <img 
                   src={mobile} 
