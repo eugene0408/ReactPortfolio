@@ -8,6 +8,7 @@ import { AnimatePresence } from "framer-motion";
 import { Home, Skills, Portfolio, Contacts } from './sections'
 import { SideMenu, Topline } from "./components";
 import { SnapScrollContainer } from "./sections/Pages.styles";
+import { Loading } from "./components";
 
 // Context
 export const ThemeContext = React.createContext();
@@ -41,6 +42,8 @@ function App() {
   const [portfolioData, setPortfolioData] = useState([])
   const [skillsData, setSkillsData] = useState({})
 
+  const [pageLoaded, setPageLoaded] = useState(false)
+
   // Portfolio scroll pages
   const [curPortfolioPage,
     setCurPortfolioPage] = useState(1);
@@ -71,7 +74,8 @@ function App() {
 
 
   useEffect(() => {
-    getData()
+    getData();
+    setPageLoaded(true)
   }, [])
 
 
@@ -121,62 +125,64 @@ function App() {
       className="App" 
       data-theme={theme}
     >
-      <ThemeContext.Provider 
-        value={{
-          theme: theme,
-          changeTheme: setTheme
-        }}
-      >
-        <SectionContext.Provider
+      { !pageLoaded ? <Loading/> :
+        
+        <ThemeContext.Provider 
           value={{
-            active: currentSection,
+            theme: theme,
+            changeTheme: setTheme
           }}
         >
-          <Topline />
-          <SideMenu
-            scrollToSection = {scrollToSection}
-            portfolioHovered = {portfolioHovered}
-            setPortfolioHovered = {setPortfolioHovered}
-          />
-          <AnimatePresence>
-            <SnapScrollContainer 
-              ref={scrollContainerRef}
-              currentSection={currentSection}
+          <SectionContext.Provider
+            value={{
+              active: currentSection,
+            }}
+          >
+            <Topline />
+            <SideMenu
+              scrollToSection = {scrollToSection}
               portfolioHovered = {portfolioHovered}
-              onScroll = {() => activeSectionCheck()}
-              onTouchEnd = {() => activeSectionCheck()}
-            >
-              <Home 
-                ref={addToRefs}
-                scrollToSection = {scrollToSection}
-              />
-              {
-                skillsData &&  Object.keys(skillsData).length > 0 &&
-                <Skills
+              setPortfolioHovered = {setPortfolioHovered}
+            />
+            <AnimatePresence>
+              <SnapScrollContainer 
+                ref={scrollContainerRef}
+                currentSection={currentSection}
+                portfolioHovered = {portfolioHovered}
+                onScroll = {() => activeSectionCheck()}
+                onTouchEnd = {() => activeSectionCheck()}
+              >
+                <Home 
                   ref={addToRefs}
-                  skillsData={skillsData}
-                />             
-              }
-              {
-                portfolioData && portfolioData.length > 0 &&
-                <Portfolio
-                  ref={addToRefs}
-                  curScreen={curPortfolioPage}
-                  setCurScreen={setCurPortfolioPage}
-                  hovered={portfolioHovered}
-                  setHovered={setPortfolioHovered}
                   scrollToSection = {scrollToSection}
-                  portfolioData = {portfolioData}
                 />
-              }
-              <Contacts 
-                ref={addToRefs}
-              />
-            </SnapScrollContainer>
-          </AnimatePresence>
-        </SectionContext.Provider>
-      </ThemeContext.Provider>
-
+                {
+                  skillsData &&  Object.keys(skillsData).length > 0 &&
+                  <Skills
+                    ref={addToRefs}
+                    skillsData={skillsData}
+                  />             
+                }
+                {
+                  portfolioData && portfolioData.length > 0 &&
+                  <Portfolio
+                    ref={addToRefs}
+                    curScreen={curPortfolioPage}
+                    setCurScreen={setCurPortfolioPage}
+                    hovered={portfolioHovered}
+                    setHovered={setPortfolioHovered}
+                    scrollToSection = {scrollToSection}
+                    portfolioData = {portfolioData}
+                  />
+                }
+                <Contacts 
+                  ref={addToRefs}
+                />
+              </SnapScrollContainer>
+            </AnimatePresence>
+          </SectionContext.Provider>
+        </ThemeContext.Provider>
+      }
 
     </div>
   );

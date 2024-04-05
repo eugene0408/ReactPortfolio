@@ -39,7 +39,8 @@ export const Portfolio = forwardRef((
   const [touchEnd, 
     setTouchEnd] = useState(null)
   // Preloaded slides
-  const [loadedSlides, setLoadedSlides] = useState([])
+  const [loadedSlides, 
+    setLoadedSlides] = useState([])
 
   useEffect (() => {
     // Get data array and return it with loaded images

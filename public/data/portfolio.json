@@ -4,7 +4,7 @@
         "category": "react",
         "desktop": "images/portfolio/ageCounterReact.png",
         "mobile": "images/portfolio/ageCounterReact-mobile.png",
-        "descr": "Enter your birth date and find out how many years, months, days, hours & minutes you have lived at the moment; days to your next birthday etc. ",
+        "descr": "Users input their birthdate, and the app calculates and displays their current age in years, months, days, hours, minutes, birthday countdown etc ",
         "tags": ["react", "css", "i18next"],
         "website": "https://age-counter.netlify.app",
         "repo": "https://github.com/eugene0408/age-counter-React"
@@ -14,7 +14,7 @@
         "category": "react",
         "desktop": "images/portfolio/reduxShop.png",
         "mobile": "images/portfolio/reduxShop-mobile.png",
-        "descr": "Online store, filter goods by categories, dark/light theme, responsive design",
+        "descr": "Mock e-commerce store designed for portfolio purposes with essential features like category sorting, popular products, and a shopping cart. Users can switch between light and dark themes.",
         "tags": ["react", "redux"],
         "website": "https://shop-react-redux-bice.vercel.app/",
         "repo": "https://github.com/eugene0408/shop-react-redux"
@@ -24,7 +24,7 @@
         "category": "react",
         "desktop": "images/portfolio/todoRedux.png",
         "mobile": "images/portfolio/todoRedux-mobile.png",
-        "descr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor fermentum a odio adipiscing morbi nullam fusce. Dolor lectus vitae habitant etiam adipiscing ",
+        "descr": "A minimalist To-Do List app with smooth animations. Features include task completion tracking, sorting options for completed and pending items",
         "tags": ["react", "redux"],
         "website": "https://eugene0408.github.io/Todo-ReactRedux/",
         "repo": "https://github.com/eugene0408/Todo-ReactRedux"
@@ -34,7 +34,7 @@
         "category": "js",
         "desktop": "images/portfolio/honeyShop.png",
         "mobile": "images/portfolio/honeyShop-mobile.png",
-        "descr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor fermentum a odio adipiscing morbi nullam fusce. Dolor lectus vitae habitant etiam adipiscing ",
+        "descr": "Small e-commerce web application with smooth animations. It demonstrates essential features commonly found in online stores. ",
         "tags": ["html", "sass", "jQuery"],
         "website": "https://eugene0408.github.io/honey_shop/",
         "repo": "https://github.com/eugene0408/honey_shop"
@@ -44,7 +44,7 @@
         "category": "js",
         "desktop": "images/portfolio/kompremont.png",
         "mobile": "images/portfolio/kompremont-mobile.png",
-        "descr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor fermentum a odio adipiscing morbi nullam fusce. Dolor lectus vitae habitant etiam adipiscing ",
+        "descr": "Computer and smartphone repair workshop website.  The site features an engaging carousel slider that showcases key offerings, and subtle element animations enhance user interaction. ",
         "tags": ["html", "sass", "jQuery"],
         "website": "http://compremont.ml/",
         "repo": "https://github.com/eugene0408/Compremont"
@@ -54,7 +54,7 @@
         "category": "js",
         "desktop": "images/portfolio/foodSpin.png",
         "mobile": "images/portfolio/foodSpin-mobile.png",
-        "descr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor fermentum a odio adipiscing morbi nullam fusce. Dolor lectus vitae habitant etiam adipiscing ",
+        "descr": "Website layout design based on a free template. Spinner carousel, dynamic animations, responsive design",
         "tags": ["html", "sass", "js"],
         "website": "https://eugene0408.github.io/food-spin/",
         "repo": "https://github.com/eugene0408/food-spin"
