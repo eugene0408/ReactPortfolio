@@ -72,17 +72,31 @@ function App() {
     }) 
   }
 
+  // Preload images of first page
+  const preloadImages = (imageUrls) => {
+    imageUrls.forEach((url) => {
+      const img = new Image();
+      img.src = url;
+    });
+  }
+
+  const imageUrls = [
+    "./images/homepage/morda.png",
+    "./images/homepage/sun.png",
+    "./images/homepage/moon.png"
+  ]
+
 
   useEffect(() => {
     getData();
-    setPageLoaded(true)
+    preloadImages(imageUrls)
+    setTimeout(() => {setPageLoaded(true)}, 1500)
   }, [])
 
 
 
   const scrollContainerRef = useRef(null)
   const sectionsRefs = useRef([])
-  // sectionsRefs.current = []
 
   const addToRefs = (el) => {
     if(el && !sectionsRefs.current.includes(el)){
@@ -125,64 +139,67 @@ function App() {
       className="App" 
       data-theme={theme}
     >
-      { !pageLoaded ? <Loading/> :
+      
+      { !pageLoaded ? <Loading /> :
+      <ThemeContext.Provider 
+        value={{
+          theme: theme,
+          changeTheme: setTheme
+        }}
+      >
         
-        <ThemeContext.Provider 
+        <SectionContext.Provider
           value={{
-            theme: theme,
-            changeTheme: setTheme
+            active: currentSection,
           }}
         >
-          <SectionContext.Provider
-            value={{
-              active: currentSection,
-            }}
-          >
-            <Topline />
-            <SideMenu
-              scrollToSection = {scrollToSection}
+          
+          <Topline />
+          <SideMenu
+            scrollToSection = {scrollToSection}
+            portfolioHovered = {portfolioHovered}
+            setPortfolioHovered = {setPortfolioHovered}
+          />
+          <AnimatePresence>
+            <SnapScrollContainer 
+              ref={scrollContainerRef}
+              currentSection={currentSection}
               portfolioHovered = {portfolioHovered}
-              setPortfolioHovered = {setPortfolioHovered}
-            />
-            <AnimatePresence>
-              <SnapScrollContainer 
-                ref={scrollContainerRef}
-                currentSection={currentSection}
-                portfolioHovered = {portfolioHovered}
-                onScroll = {() => activeSectionCheck()}
-                onTouchEnd = {() => activeSectionCheck()}
-              >
-                <Home 
+              onScroll = {() => activeSectionCheck()}
+              onTouchEnd = {() => activeSectionCheck()}
+            >
+              <Home 
+                ref={addToRefs}
+                scrollToSection = {scrollToSection}
+              />
+              {
+                skillsData &&  Object.keys(skillsData).length > 0 &&
+                <Skills
                   ref={addToRefs}
+                  skillsData={skillsData}
+                />             
+              }
+              {
+                portfolioData && portfolioData.length > 0 &&
+                <Portfolio
+                  ref={addToRefs}
+                  curScreen={curPortfolioPage}
+                  setCurScreen={setCurPortfolioPage}
+                  hovered={portfolioHovered}
+                  setHovered={setPortfolioHovered}
                   scrollToSection = {scrollToSection}
+                  portfolioData = {portfolioData}
                 />
-                {
-                  skillsData &&  Object.keys(skillsData).length > 0 &&
-                  <Skills
-                    ref={addToRefs}
-                    skillsData={skillsData}
-                  />             
-                }
-                {
-                  portfolioData && portfolioData.length > 0 &&
-                  <Portfolio
-                    ref={addToRefs}
-                    curScreen={curPortfolioPage}
-                    setCurScreen={setCurPortfolioPage}
-                    hovered={portfolioHovered}
-                    setHovered={setPortfolioHovered}
-                    scrollToSection = {scrollToSection}
-                    portfolioData = {portfolioData}
-                  />
-                }
-                <Contacts 
-                  ref={addToRefs}
-                />
-              </SnapScrollContainer>
-            </AnimatePresence>
-          </SectionContext.Provider>
-        </ThemeContext.Provider>
+              }
+              <Contacts 
+                ref={addToRefs}
+              />
+            </SnapScrollContainer>
+          </AnimatePresence>
+        </SectionContext.Provider>
+      </ThemeContext.Provider>
       }
+      
 
     </div>
   );

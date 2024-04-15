@@ -1,4 +1,4 @@
-import React, {useContext, useEffect}from 'react'
+import React, {useContext, useEffect, useState}from 'react'
 import { ThemeContext } from '../../App'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -8,9 +8,9 @@ import { Container, Row, Col } from 'react-grid-system'
 // Images
 import {ReactComponent as DownloadIcon} from '../../assets/icons/document.svg'
 import {ReactComponent as AvatarBg} from '../../assets/images/morda-bg.svg'
-import ava from '../../assets/images/morda.png'
-import sun from '../../assets/images/sun.png'
-import moon from '../../assets/images/moon.png'
+// import ava from '../../assets/images/morda.png'
+// import sun from '../../assets/images/sun.png'
+// import moon from '../../assets/images/moon.png'
 
 // Components
 import { 
@@ -198,7 +198,7 @@ export const Home = React.forwardRef(({
               variants={sunMoonAnimation}
             >
               <motion.img 
-                src={sun} 
+                src={"./images/homepage/sun.png"} 
                 alt="sun" 
                 animate={{rotate: 360}}
                 transition={{
@@ -214,7 +214,7 @@ export const Home = React.forwardRef(({
                 variants={sunMoonAnimation}
               >
                 <motion.img 
-                  src={moon} 
+                  src={"./images/homepage/moon.png"} 
                   alt="moon" 
                   animate={{rotate: 360}}
                   transition={{
@@ -249,7 +249,7 @@ export const Home = React.forwardRef(({
                 <AvatarBg />
               </AvatarBgWrapper>
               <motion.img 
-                src={ava} 
+                src={"./images/homepage/morda.png"} 
                 alt='avatar'
                 variants={imageAnimation}
                 custom={1}

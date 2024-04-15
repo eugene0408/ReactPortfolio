@@ -44,7 +44,7 @@
         "category": "js",
         "desktop": "images/portfolio/kompremont.png",
         "mobile": "images/portfolio/kompremont-mobile.png",
-        "descr": "Computer and smartphone repair workshop website.  The site features an engaging carousel slider that showcases key offerings, and subtle element animations enhance user interaction. ",
+        "descr": "Computer and smartphone repair workshop website with an engaging carousel slider that showcases key offerings, and subtle element animations enhance user interaction. ",
         "tags": ["html", "sass", "jQuery"],
         "website": "http://compremont.ml/",
         "repo": "https://github.com/eugene0408/Compremont"
