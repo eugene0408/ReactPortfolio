@@ -111,7 +111,7 @@ export const AvatarBgWrapper = styled.div`
         height: 420px;
     }
     & svg path {
-        fill: var(--menu-bg)
+        fill: var(--ava-bg);
     }
     @media (max-width: 1200px) {
         & svg {
