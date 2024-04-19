@@ -12,7 +12,7 @@ export const Item = styled.button`
     justify-content: center;
     border: none;
     border-radius: 10px;
-    background: ${props => props.curCategory === props.value ? 'var(--accent)' : 'var(--menu-bg)'};
+    background: ${props => props.curCategory === props.value ? 'var(--accent)' : 'var(--ava-bg)'};
     font-size: 16px;
     color: ${props => props.curCategory === props.value ? '#000' : 'var(--text-col)'};
     padding: .5rem 1rem;

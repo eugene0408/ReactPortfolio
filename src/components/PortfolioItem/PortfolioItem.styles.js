@@ -96,12 +96,14 @@ export const DesctopScreen = styled.div`
     height: 100%;
     width: 100%;
     border-radius: 10px;
+    border: 3px solid rgba(212,212,212, .5);
     box-shadow: var(--portfolio-shadow);
+    overflow: hidden;
     z-index: 1;
     & img {
         height: 100%;
         width: 100%;
-        border-radius: 10px;
+        /* border-radius: 10px; */
     }
 
 `
@@ -133,12 +135,14 @@ export const MobileScreen = styled.div`
     right: -10%;
     bottom: -10%;
     border-radius: 10px;
+    border: 3px solid rgba(212,212,212, .5);
     box-shadow:  var(--portfolio-shadow);
+    overflow: hidden;
     z-index: 2;
     & img {
         height: 100%;
         width: 100%;
-        border-radius: 10px;
+        /* border-radius: 10px; */
     }
     &:nth-of-type(2n + 2) {
         right: 0%;

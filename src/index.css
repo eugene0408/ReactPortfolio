@@ -84,14 +84,20 @@
 }
 
 /* --main-bg:#15141B; */
-/* night-shift : linear-gradient(109deg, rgba(34,36,48,1) 40%, rgba(21,20,27,0.8) 60%, rgba(21,20,27,1) 98%);
+/*linear-gradient(109deg, rgba(34,36,48,1) 40%, rgba(21,20,27,0.8) 60%, rgba(21,20,27,1) 98%);
+linear-gradient(315deg, #2b4162 0%, #12100e 74%);   
+
+background-image: linear-gradient(315deg, #130f40 0%, #000000 74%);
+
+background-image: linear-gradient(147deg, #4d4855 0%, #000000 74%);
+
 
 
  */
 
 :root{
   --accent:#FFC831;
-  --main-bg: linear-gradient(315deg, #2b4162 0%, #12100e 74%);
+  --main-bg: linear-gradient(147deg, #4d4855 0%, #000000 74%);
   --menu-bg: linear-gradient(109deg, rgba(34,36,48,1) 40%, rgba(21,20,27,0.8) 60%, rgba(21,20,27,1) 98%);
   --light-red:#FB627D;
   --theme-accent:#FFC831;
@@ -100,7 +106,7 @@
   --greensea:#16A085;
   --carrot:#E67E22;
   --orange:#F39C12;
-  --ava-bg: rgba(0,0,0, .2);
+  --ava-bg: rgba(255,255,255, .15);
 
 
   --glassBg:rgba( 255,255,255, 0.07);
