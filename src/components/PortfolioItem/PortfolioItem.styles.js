@@ -178,6 +178,9 @@ export const Description = styled.p`
     @media (max-width: 1600px) {
         margin: .3em 0 .8em 0;
     }
+    @media (max-width: 768px) {
+        font-size: 14px;
+    }
 
 `
 

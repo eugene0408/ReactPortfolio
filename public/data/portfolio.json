@@ -14,7 +14,7 @@
         "category": "react",
         "desktop": "images/portfolio/reduxShop.png",
         "mobile": "images/portfolio/reduxShop-mobile.png",
-        "descr": "Mock e-commerce store designed for portfolio purposes with essential features like category sorting, popular products, and a shopping cart. Users can switch between light and dark themes.",
+        "descr": "E-commerce store designed for portfolio purposes with category sorting, popular products, shopping cart and switch between light and dark themes.",
         "tags": ["react", "redux"],
         "website": "https://shop-react-redux-bice.vercel.app/",
         "repo": "https://github.com/eugene0408/shop-react-redux"
@@ -24,7 +24,7 @@
         "category": "react",
         "desktop": "images/portfolio/todoRedux.png",
         "mobile": "images/portfolio/todoRedux-mobile.png",
-        "descr": "A minimalist To-Do List app with smooth animations. Features include task completion tracking, sorting options for completed and pending items",
+        "descr": "A minimalist To-Do List app with smooth animations, task completion tracking, sorting options for completed and pending items",
         "tags": ["react", "redux"],
         "website": "https://eugene0408.github.io/Todo-ReactRedux/",
         "repo": "https://github.com/eugene0408/Todo-ReactRedux"
@@ -44,7 +44,7 @@
         "category": "js",
         "desktop": "images/portfolio/kompremont.png",
         "mobile": "images/portfolio/kompremont-mobile.png",
-        "descr": "Computer and smartphone repair workshop website with an engaging carousel slider that showcases key offerings, and subtle element animations enhance user interaction. ",
+        "descr": "Computer and smartphone repair workshop website with carousel slider that showcases key offerings, and subtle element animations.",
         "tags": ["html", "sass", "jQuery"],
         "website": "http://compremont.ml/",
         "repo": "https://github.com/eugene0408/Compremont"
@@ -58,16 +58,6 @@
         "tags": ["html", "sass", "js"],
         "website": "https://eugene0408.github.io/food-spin/",
         "repo": "https://github.com/eugene0408/food-spin"
-    },
-    {
-        "title": "Portfolio website",
-        "category": "js",
-        "desktop": "images/portfolio/portfolio.png",
-        "mobile": "images/portfolio/portfolio-mobile.png",
-        "descr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor fermentum a odio adipiscing morbi nullam fusce. Dolor lectus vitae habitant etiam adipiscing ",
-        "tags": ["html", "sass", "js"],
-        "website": " https://lemakeug.netlify.app",
-        "repo": "https://github.com/eugene0408/My_Portfolio"
     }
     
 ]
