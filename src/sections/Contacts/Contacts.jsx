@@ -227,7 +227,7 @@ export const Contacts = forwardRef((props, ref) => {
               <SocialContainer>
                 {/* Telegram */}
                 <SocialItem
-                  href="tg://resolve?domain=eugene0408"
+                  href="tg://resolve?domain=eugene_0408"
                   as={motion.a}
                   variants={socialLinkAnimation}
                   initial='hidden'

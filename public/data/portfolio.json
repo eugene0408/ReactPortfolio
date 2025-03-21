@@ -1,63 +1,72 @@
 [
-    {
-        "title": "Age Counter",
-        "category": "react",
-        "desktop": "images/portfolio/ageCounterReact.png",
-        "mobile": "images/portfolio/ageCounterReact-mobile.png",
-        "descr": "Users input their birthdate, and the app calculates and displays their current age in years, months, days, hours, minutes, birthday countdown etc ",
-        "tags": ["react", "css", "i18next"],
-        "website": "https://age-counter.netlify.app",
-        "repo": "https://github.com/eugene0408/age-counter-React"
-    },
-    {
-        "title": "Carpathian Herbs Shop",
-        "category": "react",
-        "desktop": "images/portfolio/reduxShop.png",
-        "mobile": "images/portfolio/reduxShop-mobile.png",
-        "descr": "E-commerce store designed for portfolio purposes with category sorting, popular products, shopping cart and switch between light and dark themes.",
-        "tags": ["react", "redux"],
-        "website": "https://shop-react-redux-bice.vercel.app/",
-        "repo": "https://github.com/eugene0408/shop-react-redux"
-    },
-    {
-        "title": "Todo List",
-        "category": "react",
-        "desktop": "images/portfolio/todoRedux.png",
-        "mobile": "images/portfolio/todoRedux-mobile.png",
-        "descr": "A minimalist To-Do List app with smooth animations, task completion tracking, sorting options for completed and pending items",
-        "tags": ["react", "redux"],
-        "website": "https://eugene0408.github.io/Todo-ReactRedux/",
-        "repo": "https://github.com/eugene0408/Todo-ReactRedux"
-    },
-    {
-        "title": "Honey Shop",
-        "category": "js",
-        "desktop": "images/portfolio/honeyShop.png",
-        "mobile": "images/portfolio/honeyShop-mobile.png",
-        "descr": "Small e-commerce web application with smooth animations. It demonstrates essential features commonly found in online stores. ",
-        "tags": ["html", "sass", "jQuery"],
-        "website": "https://eugene0408.github.io/honey_shop/",
-        "repo": "https://github.com/eugene0408/honey_shop"
-    },
-    {
-        "title": "Compremont",
-        "category": "js",
-        "desktop": "images/portfolio/kompremont.png",
-        "mobile": "images/portfolio/kompremont-mobile.png",
-        "descr": "Computer and smartphone repair workshop website with carousel slider that showcases key offerings, and subtle element animations.",
-        "tags": ["html", "sass", "jQuery"],
-        "website": "http://compremont.ml/",
-        "repo": "https://github.com/eugene0408/Compremont"
-    },
-    {
-        "title": "Food spin",
-        "category": "js",
-        "desktop": "images/portfolio/foodSpin.png",
-        "mobile": "images/portfolio/foodSpin-mobile.png",
-        "descr": "Website layout design based on a free template. Spinner carousel, dynamic animations, responsive design",
-        "tags": ["html", "sass", "js"],
-        "website": "https://eugene0408.github.io/food-spin/",
-        "repo": "https://github.com/eugene0408/food-spin"
-    }
-    
+  {
+    "title": "Headless Wordpress Shop",
+    "category": "react",
+    "desktop": "images/portfolio/headlessShop.webp",
+    "mobile": "images/portfolio/headlessShop-mobile.webp",
+    "descr": "A compact e-commerce website built with Headless WordPress/WooCommerce as a backend. The project features a modern MUI design, efficient product search, dark & light theme, optimized for both desktop and mobile devices",
+    "tags": ["react", "redux", "MUI"],
+    "website": "https://headless-wp-shop.netlify.app/",
+    "repo": "https://github.com/eugene0408/woommerce-headless-wordpress"
+  },
+  {
+    "title": "Age Counter",
+    "category": "react",
+    "desktop": "images/portfolio/ageCounterReact.webp",
+    "mobile": "images/portfolio/ageCounterReact-mobile.webp",
+    "descr": " Web application that accurately calculates a user's age based on their birthdate. It displays the exact time elapsed since birth (years, months, days, hours, minutes). Supports multiple languages, light & dark themes and a fully responsive design.",
+    "tags": ["react", "css", "i18next"],
+    "website": "https://age-counter.netlify.app",
+    "repo": "https://github.com/eugene0408/age-counter-React"
+  },
+  {
+    "title": "Carpathian Herbs Shop",
+    "category": "react",
+    "desktop": "images/portfolio/reduxShop.webp",
+    "mobile": "images/portfolio/reduxShop-mobile.webp",
+    "descr": "E-commerce store designed for portfolio purposes with category sorting, popular products, shopping cart and switch between light and dark themes.",
+    "tags": ["react", "redux"],
+    "website": "https://shop-react-redux-bice.vercel.app/",
+    "repo": "https://github.com/eugene0408/shop-react-redux"
+  },
+  {
+    "title": "Todo List",
+    "category": "react",
+    "desktop": "images/portfolio/todoRedux.webp",
+    "mobile": "images/portfolio/todoRedux-mobile.webp",
+    "descr": "A minimalist To-Do List app with smooth animations, task completion tracking, sorting options for completed and pending items",
+    "tags": ["react", "redux"],
+    "website": "https://eugene0408.github.io/Todo-ReactRedux/",
+    "repo": "https://github.com/eugene0408/Todo-ReactRedux"
+  },
+  {
+    "title": "Honey Shop",
+    "category": "js",
+    "desktop": "images/portfolio/honeyShop.webp",
+    "mobile": "images/portfolio/honeyShop-mobile.webp",
+    "descr": "Small e-commerce web application with smooth animations. It demonstrates essential features commonly found in online stores. ",
+    "tags": ["html", "sass", "jQuery"],
+    "website": "https://eugene0408.github.io/honey_shop/",
+    "repo": "https://github.com/eugene0408/honey_shop"
+  },
+  {
+    "title": "Compremont",
+    "category": "js",
+    "desktop": "images/portfolio/kompremont.webp",
+    "mobile": "images/portfolio/kompremont-mobile.webp",
+    "descr": "Computer and smartphone repair workshop website with carousel slider that showcases key offerings, and subtle element animations.",
+    "tags": ["html", "sass", "jQuery"],
+    "website": "https://compremont.netlify.app/",
+    "repo": "https://github.com/eugene0408/Compremont"
+  },
+  {
+    "title": "Food spin",
+    "category": "js",
+    "desktop": "images/portfolio/foodSpin.webp",
+    "mobile": "images/portfolio/foodSpin-mobile.webp",
+    "descr": "Website layout design based on a free template. Spinner carousel, dynamic animations, responsive design",
+    "tags": ["html", "sass", "js"],
+    "website": "https://eugene0408.github.io/food-spin/",
+    "repo": "https://github.com/eugene0408/food-spin"
+  }
 ]

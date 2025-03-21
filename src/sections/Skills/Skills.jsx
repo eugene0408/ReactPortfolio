@@ -45,7 +45,7 @@ const skillCardsAnimation = {
   }),
 };
 
-export const Skills = forwardRef(({skillsData}, ref) => {
+export const Skills = forwardRef(({ skillsData }, ref) => {
   return (
     <PageWrapper id="s-skills" ref={ref}>
       <PageHeader> My skills </PageHeader>
@@ -69,8 +69,8 @@ export const Skills = forwardRef(({skillsData}, ref) => {
         </SkillsRow>
 
         <SkillsRow>
-          <RowHeader>Programing</RowHeader>
-          {skillsData.programing.map((item, index) => (
+          <RowHeader>Development</RowHeader>
+          {skillsData.development.map((item, index) => (
             <Col key={item.name} {...colProps}>
               <MSkillsItem
                 name={item.name}

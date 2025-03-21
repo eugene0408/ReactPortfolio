@@ -1,28 +1,22 @@
-import React, {useContext, useEffect, useState}from 'react'
-import { ThemeContext } from '../../App'
-import { motion, AnimatePresence } from 'framer-motion'
+import React, { useContext, useEffect, useState } from "react";
+import { ThemeContext } from "../../App";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Grid
-import { Container, Row, Col } from 'react-grid-system'
+import { Container, Row, Col } from "react-grid-system";
 
 // Images
-import {ReactComponent as DownloadIcon} from '../../assets/icons/document.svg'
-import {ReactComponent as AvatarBg} from '../../assets/images/morda-bg.svg'
+import { ReactComponent as DownloadIcon } from "../../assets/icons/document.svg";
+import { ReactComponent as AvatarBg } from "../../assets/images/morda-bg.svg";
 // import ava from '../../assets/images/morda.png'
 // import sun from '../../assets/images/sun.png'
 // import moon from '../../assets/images/moon.png'
 
 // Components
-import { 
-  AccentButton, 
-  CVButton, 
-  CVIcon 
-} from '../../components'
+import { AccentButton, CVButton, CVIcon } from "../../components";
 
 // Styles
-import { 
-  PageWrapper 
-} from '../Pages.styles'
+import { PageWrapper } from "../Pages.styles";
 import {
   HeaderWrapper,
   HeaderTitle,
@@ -32,15 +26,14 @@ import {
   ScrollDownWrapper,
   ScrollLink,
   DownArrow,
-  AvatarBgWrapper
-} from './Home.styles'
-
+  AvatarBgWrapper,
+} from "./Home.styles";
 
 const sunMoonAnimation = {
   hidden: {
     x: -250,
     y: 100,
-    opacity: 0
+    opacity: 0,
   },
   visible: {
     x: [-250, -220, -200, -150, -100, 0],
@@ -50,8 +43,8 @@ const sunMoonAnimation = {
       delay: 0.2,
       duaration: 0.5,
       type: "tween",
-      ease: "easeInOut"
-    }
+      ease: "easeInOut",
+    },
   },
   exit: {
     x: [0, 100, 150, 200, 220, 250],
@@ -59,26 +52,25 @@ const sunMoonAnimation = {
     transition: {
       duaration: 0.5,
       type: "tween",
-      ease: "easeInOut"
-    }
-  }
-
-}
+      ease: "easeInOut",
+    },
+  },
+};
 
 const imageAnimation = {
   hidden: {
     x: 250,
-    opacity: 0
+    opacity: 0,
   },
-  visible: custom => ({
+  visible: (custom) => ({
     x: 0,
     opacity: 1,
     transition: {
       delay: custom * 0.2,
-      duration: 0.3
-    }
-  })
-}
+      duration: 0.3,
+    },
+  }),
+};
 
 const imageBgAnimation = {
   ...imageAnimation,
@@ -86,154 +78,132 @@ const imageBgAnimation = {
     scale: 1.15,
     transition: {
       duration: 0.5,
-      type: "spring"
-    }
-  }
-
-}
+      type: "spring",
+    },
+  },
+};
 
 const textAnimation = {
   hidden: {
     x: -250,
-    opacity: 0
+    opacity: 0,
   },
-  visible: custom => ({
+  visible: (custom) => ({
     x: 0,
     opacity: 1,
     transition: {
       delay: custom * 0.1,
       duration: 0.3,
-      type: "spring"
-    }
-  })
-}
+      type: "spring",
+    },
+  }),
+};
 
-
-
-export const Home = React.forwardRef(({
-  scrollToSection
-}, ref) => {
-
-  const {theme, changeTheme} = useContext(ThemeContext)
+export const Home = React.forwardRef(({ scrollToSection }, ref) => {
+  const { theme, changeTheme } = useContext(ThemeContext);
 
   return (
-    <PageWrapper  
-      id="s-home"
-      ref={ref}
-    >
-
-     <Container>
-      <Row>
-        {/* Title container*/}
-        <Col 
-          xxl={6} xl={7} lg={8} md={8} sm={10} xs={10}
-          offset={{xxl:1, xl:1, lg:1, md:0, sm:1.5, xs:2}}
-          order={{md: 1, sm: 2, xs: 2}}
-        >
-          <HeaderWrapper
-            as={motion.div}
-            initial="hidden"
-            whileInView="visible"
+    <PageWrapper id="s-home" ref={ref}>
+      <Container>
+        <Row>
+          {/* Title container*/}
+          <Col
+            xxl={6}
+            xl={7}
+            lg={8}
+            md={8}
+            sm={10}
+            xs={10}
+            offset={{ xxl: 1, xl: 1, lg: 1, md: 0, sm: 1.5, xs: 2 }}
+            order={{ md: 1, sm: 2, xs: 2 }}
           >
-            <HeaderTitle>
-              <motion.h2
+            <HeaderWrapper
+              as={motion.div}
+              initial="hidden"
+              whileInView="visible"
+            >
+              <HeaderTitle>
+                <motion.h2 variants={textAnimation} custom={1}>
+                  Hi,
+                </motion.h2>
+                <motion.h2 variants={textAnimation} custom={2}>
+                  I'm Eugene,
+                </motion.h2>
+                <motion.h2 variants={textAnimation} custom={3}>
+                  Web developer
+                </motion.h2>
+              </HeaderTitle>
+              <HeaderSkills as={motion.p} variants={textAnimation} custom={4}>
+                HTML | CSS | JS | REACT
+              </HeaderSkills>
+
+              <AccentButton
+                onClick={() => scrollToSection("s-contacts")}
+                as={motion.button}
                 variants={textAnimation}
-                custom={1}
+                custom={5}
               >
-                Hi,
-              </motion.h2>
-              <motion.h2
-                variants={textAnimation}
-                custom={2}
-              >
-                I'm Eugene,
-              </motion.h2>
-              <motion.h2
-                variants={textAnimation}
-                custom={3}
-              >
-                Web developer
-              </motion.h2>
-            </HeaderTitle>
-            <HeaderSkills
-              as={motion.p}
-              variants={textAnimation}
-              custom={4}
-            >
-              HTML | CSS | JS | REACT
-            </HeaderSkills>
+                Contact me
+              </AccentButton>
 
-            <AccentButton
-              onClick={() => scrollToSection("s-contacts")}
-              as={motion.button}
-              variants={textAnimation}
-              custom={5}
-            >
-              Contact me
-            </AccentButton>
+              <CVButton as={motion.button} variants={textAnimation} custom={6}>
+                <CVIcon>
+                  <DownloadIcon />
+                </CVIcon>
+                Download CV
+              </CVButton>
+            </HeaderWrapper>
+          </Col>
 
-            <CVButton
-              as={motion.button}
-              variants={textAnimation}
-              custom={6}
-            >
-              <CVIcon>
-                <DownloadIcon />
-              </CVIcon>
-              Download CV
-            </CVButton>
-
-          </HeaderWrapper>
-        </Col>
-
-        <ThemeImageWrapper 
-          as={motion.div}
-          onClick={()=> {changeTheme(theme === 'dark' ? 'light' : 'dark')}}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-        >
-          { theme === 'light' &&
-            <motion.div
-              variants={sunMoonAnimation}
-            >
-              <motion.img 
-                src={"./images/homepage/sun.png"} 
-                alt="sun" 
-                animate={{rotate: 360}}
-                transition={{
-                  repeat: Infinity, 
-                  duration: 8,
-                  ease: "linear"
-                }}
-                />
-            </motion.div>  
-          }
-          { theme === 'dark' &&
-              <motion.div
-                variants={sunMoonAnimation}
-              >
-                <motion.img 
-                  src={"./images/homepage/moon.png"} 
-                  alt="moon" 
-                  animate={{rotate: 360}}
+          <ThemeImageWrapper
+            as={motion.div}
+            onClick={() => {
+              changeTheme(theme === "dark" ? "light" : "dark");
+            }}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          >
+            {theme === "light" && (
+              <motion.div variants={sunMoonAnimation}>
+                <motion.img
+                  src={"./images/homepage/sun.webp"}
+                  alt="sun"
+                  animate={{ rotate: 360 }}
                   transition={{
-                    repeat: Infinity, 
+                    repeat: Infinity,
                     duration: 8,
-                    ease: "linear"
-                  }}  
-
+                    ease: "linear",
+                  }}
                 />
               </motion.div>
-          }
-        </ThemeImageWrapper>
-        {/* Image container*/}
-        <Col
-          xxl={4} xl={3} lg={3} md={3} sm={3} xs={3}
-          offset={{xxl:0, xl:0, lg:0, md:1, sm: 6, xs: 4}}
-          order={{md: 2, sm: 1, xs: 1}}
-        >
-
+            )}
+            {theme === "dark" && (
+              <motion.div variants={sunMoonAnimation}>
+                <motion.img
+                  src={"./images/homepage/moon.webp"}
+                  alt="moon"
+                  animate={{ rotate: 360 }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 8,
+                    ease: "linear",
+                  }}
+                />
+              </motion.div>
+            )}
+          </ThemeImageWrapper>
+          {/* Image container*/}
+          <Col
+            xxl={4}
+            xl={3}
+            lg={3}
+            md={3}
+            sm={3}
+            xs={3}
+            offset={{ xxl: 0, xl: 0, lg: 0, md: 1, sm: 6, xs: 4 }}
+            order={{ md: 2, sm: 1, xs: 1 }}
+          >
             <AvatarWrapper
               as={motion.div}
               initial="hidden"
@@ -248,42 +218,38 @@ export const Home = React.forwardRef(({
               >
                 <AvatarBg />
               </AvatarBgWrapper>
-              <motion.img 
-                src={"./images/homepage/morda.png"} 
-                alt='avatar'
+              <motion.img
+                src={"./images/homepage/morda.webp"}
+                alt="avatar"
                 variants={imageAnimation}
                 custom={1}
               />
             </AvatarWrapper>
-
-        </Col>
-      </Row>
-     </Container>
+          </Col>
+        </Row>
+      </Container>
 
       {/* Next section button */}
       <ScrollDownWrapper>
-        <ScrollLink 
-          onClick={() => scrollToSection("s-skills")}
-        >
-          <DownArrow 
+        <ScrollLink onClick={() => scrollToSection("s-skills")}>
+          <DownArrow
             as={motion.div}
             initial={{
               rotate: -45,
-              scale: 1
+              scale: 1,
             }}
             animate={{
               rotate: -45,
-              scale: [1, 1.2, 1]
+              scale: [1, 1.2, 1],
             }}
             transition={{
-              duration: 1.5, 
-              ease: "linear", 
-              repeat: Infinity
+              duration: 1.5,
+              ease: "linear",
+              repeat: Infinity,
             }}
           />
         </ScrollLink>
       </ScrollDownWrapper>
-
     </PageWrapper>
-  )
-})
+  );
+});

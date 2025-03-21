@@ -22,7 +22,7 @@ export const Topline = () => {
                 <ToplineLink href='https://linkedin.com'>
                 <LinkedIcon />
                 </ToplineLink>
-                <ToplineLink href='https://github.com'>
+                <ToplineLink href='https://github.com/eugene0408'>
                 <GitHubIcon />
                 </ToplineLink>
             </LinksWrapper>
