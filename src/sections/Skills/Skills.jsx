@@ -1,12 +1,12 @@
 import React, { forwardRef } from "react";
-import { Container, Col } from "react-grid-system";
+import { Col } from "react-grid-system";
 
 // import skillsData from "../../data/skills.json";
 
 import { MSkillsItem } from "../../components";
 
 import { PageWrapper, PageHeader } from "../Pages.styles";
-import { SkillsRow, RowHeader } from "./Skills.styles";
+import { SkillsContainer, SkillsRow, RowHeader } from "./Skills.styles";
 
 const colProps = {
   xxl: 1.2,
@@ -50,7 +50,7 @@ export const Skills = forwardRef(({ skillsData }, ref) => {
     <PageWrapper id="s-skills" ref={ref}>
       <PageHeader> My skills </PageHeader>
 
-      <Container style={{ paddingBottom: "250px" }}>
+      <SkillsContainer>
         <SkillsRow>
           <RowHeader>Layout</RowHeader>
           {skillsData.layout.map((item, index) => (
@@ -118,7 +118,7 @@ export const Skills = forwardRef(({ skillsData }, ref) => {
             </Col>
           ))}
         </SkillsRow>
-      </Container>
+      </SkillsContainer>
     </PageWrapper>
   );
 });
